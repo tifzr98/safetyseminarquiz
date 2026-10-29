@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety Quiz Competition 2026-27 - Firozpur Division</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90vh;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+        
+        /* Language Selector Styling */
+        .lang-container {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+        .lang-btn {
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #333;
+            transition: all 0.2s;
+        }
+        .lang-btn.active {
+            background-color: #003366;
+            color: white;
+            border-color: #003366;
+        }
+        .lang-btn:first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-right: none;
+        }
+        .lang-btn:last-child {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .railway-logo {
+            width: 130px;
+            height: 130px;
+            margin: 10px auto 20px auto;
+            display: block;
+            object-fit: contain;
+        }
+        h1, h2, h3 {
+            color: #003366;
+            margin: 10px 0;
+        }
+        .division-text {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+        .timer {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #d9534f;
+            background-color: #fce8e6;
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: 1px solid #f5c2c7;
+        }
+        .question {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            text-align: left;
+            font-weight: bold;
+            color: #222;
+            white-space: pre-line;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+        .options button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .options button:hover {
+            background-color: #e2e6ea;
+        }
+        .options button.selected {
+            background-color: #d1ecf1;
+            border-color: #bee5eb;
+            color: #0c5460;
+            font-weight: bold;
+        }
+        .question-palette {
+            margin: 18px 0;
+            padding: 14px;
+            background: #f8f9fa;
+            border: 1px solid #e0e4e8;
+            border-radius: 6px;
+            text-align: left;
+        }
+        .palette-heading {
+            font-weight: bold;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        .palette-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.82rem;
+            margin-bottom: 12px;
+            color: #444;
+        }
+        .legend-item { display: inline-flex; align-items: center; gap: 5px; }
+        .legend-dot {
+            width: 11px; height: 11px; border-radius: 3px;
+            display: inline-block; border: 1px solid #bbb;
+        }
+        .legend-dot.unanswered { background: #fff; }
+        .legend-dot.answered { background: #d4edda; border-color: #218838; }
+        .legend-dot.current { background: #003366; border-color: #003366; }
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 7px;
+        }
+        .palette-btn {
+            min-height: 38px;
+            border: 1px solid #b9c0c8;
+            border-radius: 5px;
+            background: #fff;
+            color: #333;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .palette-btn.answered { background: #d4edda; border-color: #218838; color: #155724; }
+        .palette-btn.current { background: #003366; border-color: #003366; color: #fff; outline: 2px solid #8db8e8; }
+        .palette-btn.current.answered { background: #003366; color: #fff; }
+        .palette-summary { font-size: 0.9rem; margin-top: 10px; color: #444; }
+        .quiz-navigation { display: flex; gap: 10px; }
+        .quiz-navigation .action-btn { width: 50%; }
+        .secondary-btn { background: #6c757d; }
+        .secondary-btn:hover { background: #545b62; }
+        @media (max-width: 480px) {
+            body { padding: 8px; }
+            .quiz-container { padding: 16px; }
+            .palette-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+            .palette-btn { min-height: 36px; }
+            .header { align-items: flex-start; gap: 8px; }
+            .timer { font-size: 0.95rem; white-space: nowrap; }
+        }
+        .action-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 14px;
+            font-size: 1.1rem;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .action-btn:hover {
+            background-color: #002244;
+        }
+        .action-btn.submit-btn { background-color: #28a745; }
+        .action-btn.submit-btn:hover { background-color: #218838; }
+        .admin-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #003366;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #003366;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    
+    <div class="lang-container" id="lang-switcher">
+        <button class="lang-btn active" id="lang-en-btn" onclick="switchLanguage('en')">English</button><button class="lang-btn" id="lang-hi-btn" onclick="switchLanguage('hi')">हिंदी</button>
+    </div>
+    
+    <div id="start-page">
+        <img class="railway-logo" src="https://upload.wikimedia.org/wikipedia/en/b/be/Indian_Railways.png" alt="Indian Railways Logo">
+        <h1 id="main-title">Safety Quiz Competition 2026-27</h1>
+        <div class="division-text" id="main-sub">Operating Department | Firozpur Division</div>
+        <button class="action-btn" id="start-btn">Proceed to Registration</button>
+        <div class="admin-link" id="go-admin-btn">Admin Dashboard (Password Protected)</div>
+    </div>
+
+    <div id="reg-page" class="hidden">
+        <img class="railway-logo" src="https://upload.wikimedia.org/wikipedia/en/b/be/Indian_Railways.png" alt="Indian Railways Logo">
+        <h2 id="reg-title">Staff Registration</h2>
+        <div class="division-text" id="reg-sub">All fields are mandatory to start the 30-min exam</div>
+        
+        <form id="quiz-form">
+            <div class="form-group">
+                <label id="lbl-name" for="staff-name">Name of Staff *</label>
+                <input type="text" id="staff-name" required>
+            </div>
+            <div class="form-group">
+                <label id="lbl-desig" for="staff-desig">Designation of Staff *</label>
+                <input type="text" id="staff-desig" required>
+            </div>
+            <div class="form-group">
+                <label id="lbl-station" for="staff-station">Station of Staff *</label>
+                <input type="text" id="staff-station" required>
+            </div>
+            <button type="submit" class="action-btn" id="reg-submit-btn">Start 30-Minute Quiz</button>
+        </form>
+    </div>
+
+    <div id="quiz-page" class="hidden">
+        <div class="header">
+            <h3 id="exam-terminal-title">Safety Quiz 2026-27</h3>
+            <div class="timer" id="timer">Time Left: 30:00</div>
+        </div>
+        <div class="question" id="question">Loading question...</div>
+        <ul class="options" id="options"></ul>
+        <div class="quiz-navigation">
+            <button class="action-btn secondary-btn" id="previous-button" type="button">Previous</button>
+            <button class="action-btn" id="next-button" type="button">Next Question</button>
+        </div>
+        <div class="question-palette">
+            <div class="palette-heading" id="palette-heading">Question Palette</div>
+            <div class="palette-legend">
+                <span class="legend-item"><span class="legend-dot unanswered"></span><span id="legend-unanswered">Unanswered</span></span>
+                <span class="legend-item"><span class="legend-dot answered"></span><span id="legend-answered">Answered</span></span>
+                <span class="legend-item"><span class="legend-dot current"></span><span id="legend-current">Current question</span></span>
+            </div>
+            <div class="palette-grid" id="question-palette-grid"></div>
+            <div class="palette-summary" id="palette-summary" aria-live="polite"></div>
+        </div>
+    </div>
+
+    <div id="end-page" class="hidden">
+        <img class="railway-logo" src="https://upload.wikimedia.org/wikipedia/en/b/be/Indian_Railways.png" alt="Indian Railways Logo">
+        <h1 id="thank-you-title">Thank You!</h1>
+        <div class="division-text" id="end-sub">Operating Department | Firozpur Division</div>
+        <div id="score-summary" style="font-size: 1.2rem; margin: 20px 0; color: #333;"></div>
+        <button class="action-btn" id="finish-btn">Finish & Back to Home</button>
+    </div>
+
+    <div id="admin-page" class="hidden">
+        <img class="railway-logo" src="https://upload.wikimedia.org/wikipedia/en/b/be/Indian_Railways.png" alt="Indian Railways Logo">
+        <h2>Master Records Dashboard</h2>
+        <div class="division-text">Safety Quiz Competition 2026-27 Results</div>
+        
+        <button class="action-btn" id="download-master-btn" style="background-color: #28a745; margin-bottom: 10px;">Download Master Excel (CSV)</button>
+        <button class="action-btn" id="clear-records-btn" style="background-color: #dc3545; margin-bottom: 10px;">Clear All Records</button>
+        
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date & Time</th>
+                        <th>Name</th>
+                        <th>Designation</th>
+                        <th>Station</th>
+                        <th>Score</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-table-body"></tbody>
+            </table>
+        </div>
+        
+        <button class="action-btn" id="exit-admin-btn" style="background-color: #6c757d;">Log Out Dashboard</button>
+    </div>
+
+</div>
+
+<script>
+    let currentLang = 'en';
+    
+    const uiLabels = {
+        en: {
+            mainTitle: "Safety Quiz Competition 2026-27",
+            mainSub: "Operating Department | Firozpur Division",
+            startBtn: "Proceed to Registration",
+            adminBtn: "Admin Dashboard (Password Protected)",
+            regTitle: "Staff Registration",
+            regSub: "All fields are mandatory to start the 30-min exam",
+            lblName: "Name of Staff *",
+            lblDesig: "Designation of Staff *",
+            lblStation: "Station of Staff *",
+            phName: "Enter full name",
+            phDesig: "e.g. PM-A, SM, TI, Guard",
+            phStation: "Enter Station Code (e.g., FZR, LDH, JUC)",
+            regSubmit: "Start 30-Minute Quiz",
+            examTitle: "Safety Quiz 2026-27",
+            timeLeft: "Time Left",
+            nextBtn: "Next Question",
+            previousBtn: "Previous",
+            submitBtn: "Submit Quiz",
+            paletteTitle: "Question Palette",
+            unanswered: "Unanswered",
+            answered: "Answered",
+            currentQuestion: "Current question",
+            answeredCount: "Answered",
+            ofLabel: "of",
+            thankYou: "Thank You!",
+            finishBtn: "Finish & Back to Home",
+            msgCompleted: "Well Done",
+            msgTimeout: "Time Limit Reached",
+            msgRecorded: "Your exam data has been safely recorded.",
+            msgScore: "Score",
+            msgOutOf: "out of",
+            msgStatus: "Status"
+        },
+        hi: {
+            mainTitle: "सुरक्षा प्रश्नोत्तरी प्रतियोगिता 2026-27",
+            mainSub: "परिचालन विभाग | फिरोजपुर मंडल",
+            startBtn: "पंजीकरण के लिए आगे बढ़ें",
+            adminBtn: "एडमिन डैशबोर्ड (पासवर्ड सुरक्षित)",
+            regTitle: "कर्मचारी पंजीकरण",
+            regSub: "30 मिनट की परीक्षा शुरू करने के लिए सभी फ़ील्ड अनिवार्य हैं",
+            lblName: "कर्मचारी का नाम *",
+            lblDesig: "कर्मचारी का पदनाम *",
+            lblStation: "कर्मचारी का स्टेशन *",
+            phName: "पूरा नाम दर्ज करें",
+            phDesig: "जैसे: PM-A, SM, TI, Guard",
+            phStation: "स्टेशन कोड दर्ज करें (जैसे: FZR, LDH, JUC)",
+            regSubmit: "30 मिनट की प्रश्नोत्तरी शुरू करें",
+            examTitle: "सुरक्षा प्रश्नोत्तरी 2026-27",
+            timeLeft: "शेष समय",
+            nextBtn: "अगला प्रश्न",
+            previousBtn: "पिछला प्रश्न",
+            submitBtn: "प्रश्नोत्तरी जमा करें",
+            paletteTitle: "प्रश्न सूची",
+            unanswered: "अनुत्तरित",
+            answered: "उत्तर दिया गया",
+            currentQuestion: "वर्तमान प्रश्न",
+            answeredCount: "उत्तर दिए गए",
+            ofLabel: "में से",
+            thankYou: "धन्यवाद!",
+            finishBtn: "समाप्त करें और होम पेज पर जाएं",
+            msgCompleted: "बहुत बढ़िया",
+            msgTimeout: "समय सीमा समाप्त",
+            msgRecorded: "आपका परीक्षा डेटा सुरक्षित रूप से रिकॉर्ड कर लिया गया है।",
+            msgScore: "अंक",
+            msgOutOf: "में से",
+            msgStatus: "स्थिति"
+        }
+    };
+
+    const quizData = [
+        {
+            question: {
+                en: "Q.1 When is a fresh SWR issued?",
+                hi: "Q.1 SWR कब नया जारी किया जाता है ?"
+            },
+            a: { en: "Every 5 years or 5 amendments", hi: "हर 5 वर्ष या 5 संशोधन पर्चियों के बाद" },
+            b: { en: "Every 3 years or 3 amendments", hi: "हर 3 वर्ष या 3 संशोधन पर्चियों के बाद" },
+            c: { en: "Every 10 years or 10 amendments", hi: "हर 10 वर्ष या 10 संशोधन पर्चियों के बाद" },
+            d: { en: "Every year", hi: "हर वर्ष" },
+            correct: "a"
+        },
+        {
+            question: {
+                en: "Q.2 What is the clearance condition for an A-Class ODC?",
+                hi: "Q.2 ए-क्लास ओ.डी.सी. में न्यूनतम क्लियरेंस की शर्त क्या है?"
+            },
+            a: { en: "Less than 4\"", hi: "4\" से कम" },
+            b: { en: "Between 4\" to 6\"", hi: "4\" से 6\"" },
+            c: { en: "Between 6\" to less than 9\"", hi: "6\" से 9\" से कम" },
+            d: { en: "9\" or above", hi: "9\" या उससे अधिक" },
+            correct: "d"
+        },
+        {
+            question: {
+                en: "Q.3 What indicates FIBA activation?",
+                hi: "Q.3 FIBA एक्टिवेशन का संकेत क्या होता है?"
+            },
+            a: { en: "Red indicator and hissing sound", hi: "लाल इंडिकेटर और हिसिंग आवाज़" },
+            b: { en: "Green indicator", hi: "हरा इंडिकेटर" },
+            c: { en: "Siren alarm", hi: "सायरन बजाना" },
+            d: { en: "Train speed increases", hi: "ट्रेन की गति बढ़ जाती है" },
+            correct: "a"
+        },
+        {
+            question: {
+                en: "Q.4 Running time of slowest train = 6 min, Block Operation Time = 2 min, Efficiency Factor = 80%. What is the line capacity for 24 hours?",
+                hi: "Q.4 एक सेक्शन पर सबसे धीमी ट्रेन का रनिंग टाइम 6 मिनट है और ब्लॉक ऑपरेशन समय 2 मिनट है। दक्षता कारक 80% है। 24 घंटे में इस सेक्शन की लाइन कैपेसिटी कितनी होगी?"
+            },
+            a: { en: "180 trains", hi: "180 ट्रेने" },
+            b: { en: "144 trains", hi: "144 ट्रेने" },
+            c: { en: "96 trains", hi: "96 ट्रेने" },
+            d: { en: "data is not sufficient", hi: "डाटा प्रयाप्त नहीं है" },
+            correct: "b"
+        },
+        {
+            question: {
+                en: "Q.5 Up to how many days in advance can empty wagons be marked \"sick\" for POH?",
+                hi: "Q.5 खाली डिब्बों को POH के लिए कितने दिन पहले तक \"सिक\" मार्क किया जा सकता है?"
+            },
+            a: { en: "15 days", hi: "15 दिन" },
+            b: { en: "30 days", hi: "30 दिन" },
+            c: { en: "45 days", hi: "45 दिन" },
+            d: { en: "60 days", hi: "60 दिन" },
+            correct: "b"
+        },
+        {
+            question: {
+                en: "Q.6 Apart from Station Master Whose signatures are mandatory on T/806?",
+                hi: "Q.6 टी/806 पर स्टेशन मास्टर के अलावा किनके हस्ताक्षर अनिवार्य हैं?"
+            },
+            a: { en: "Only Loco Pilot", hi: "केवल लोको पायलट" },
+            b: { en: "Guard and Shunting Jamadar", hi: "गार्ड और शंटिंग जमादार" },
+            c: { en: "Both Guard/Shunting Jamadar and Loco Pilot", hi: "गार्ड/शंटिंग जमादार और लोको पायलट दोनों" },
+            d: { en: "Only Station Master", hi: "केवल स्टेशन मास्टर" },
+            correct: "c"
+        },
+        {
+            question: {
+                en: "Q.7 Which of the following States is included in Region A?",
+                hi: "Q.7 निम्न में से कौन-सा राज्य Region A में शामिल है?"
+            },
+            a: { en: "Maharashtra", hi: "महाराष्ट्र" },
+            b: { en: "Uttar Pradesh", hi: "उत्तर प्रदेश" },
+            c: { en: "Punjab", hi: "पंजाब" },
+            d: { en: "Gujarat", hi: "गुजरात" },
+            correct: "b"
+        },
+        {
+            question: {
+                en: "Q.8 Braking distance must always be less than what?",
+                hi: "Q.8 ब्रेकिंग दूरी किससे कम होनी चाहिए?"
+            },
+            a: { en: "Maximum length of train", hi: "ट्रेन की अधिकतम लंबाई" },
+            b: { en: "Tractive effort of locomotive", hi: "लोकोमोटिव का ट्रैक्टिव एफर्ट" },
+            c: { en: "Axle load limit", hi: "एक्सल लोड सीमा" },
+            d: { en: "Sighting distance of the first stop signal", hi: "प्रथम स्टॉप सिग्नल की साइटिंग दूरी" },
+            correct: "d"
+        },
+        {
+            question: {
+                en: "Q.9 If the CRS does not want to investigate serious accidents then who will investigate?",
+                hi: "Q.9 यदि सी.आर.एस गंभीर दुर्घटनाओं की जाँच नहीं करना चाहता है तो जाँच कौन करेगा ?"
+            },
+            a: { en: "Junior officers under DRM", hi: "डीआरएम के अधीन कनिष्ठ अधिकारी" },
+            b: { en: "JAG officers under DRM", hi: "डीआरएम के अधीन जेएजी अधिकारी" },
+            c: { en: "Committee of S A Grade Officers approved by GM", hi: "जीएम द्वारा अनुमोदित एस ए ग्रेड अधिकारियों की समिति" },
+            d: { en: "DRM himself", hi: "डीआरएम स्वयं" },
+            correct: "c"
+        },
+        {
+            question: {
+                en: "Q.10 Before uncoupling vehicles in a gradient section (1:400 or steeper), what must be done compulsorily?",
+                hi: "Q.10 ग्रेडिएंट सेक्शन (1:400 या ज्यादा) में गाड़ियों को अनकपल करने से पहले क्या करना अनिवार्य है?"
+            },
+            a: { en: "Inform SM first", hi: "पहले SM को सूचना दें" },
+            b: { en: "Apply hand brakes and use sprags/wedges/skids", hi: "हैंड ब्रेक लगाएँ और स्प्रेग/वेज/स्किड इस्तेमाल करें" },
+            c: { en: "Uncouple directly", hi: "सीधे अनकपल कर दें" },
+            d: { en: "Take only Guard's permission", hi: "केवल गार्ड की अनुमति लें" },
+            correct: "b"
+        },
+        {
+            question: {
+                en: "Q.11 Which machine is used for Turnout packing?",
+                hi: "Q.11 टर्नआउट पैकिंग (Turnout packing) के लिए किस मशीन का उपयोग किया जाता है?"
+            },
+            a: { en: "BCM", hi: "बीसीएम" },
+            b: { en: "FRM", hi: "एफआरएम" },
+            c: { en: "UNI", hi: "यूएनआई" },
+            d: { en: "TRT", hi: "टीआरटी" },
+            correct: "c"
+        },
+        {
+            question: {
+                en: "Q.12 What is the ROH interval of Brake Vans (BVZI, BVZC, BVCM)?",
+                hi: "Q.12 ब्रेक वैन (BVZI, BVZC, BVCM) का ROH अंतराल कितने महीनों का है?"
+            },
+            a: { en: "24 months", hi: "24 माह" },
+            b: { en: "20 months", hi: "20 माह" },
+            c: { en: "18 months", hi: "18 माह" },
+            d: { en: "12 month", hi: "12 माह" },
+            correct: "d"
+        },
+        {
+            question: {
+                en: "Q.13 Where is a Traffic Gate situated?",
+                hi: "Q.13 ट्रैफिक गेट कहाँ स्थित होता है?"
+            },
+            a: { en: "Within the outermost stop signal", hi: "बाहरी स्टॉप सिग्नल के भीतर" },
+            b: { en: "Outside the outermost stop signal", hi: "बाहरी स्टॉप सिग्नल के बाहर" },
+            c: { en: "On platform", hi: "प्लेटफॉर्म पर" },
+            d: { en: "On shunting line", hi: "शंटिंग लाइन पर" },
+            correct: "a"
+        },
+        {
+            question: {
+                en: "Q.14 Official Languages Act, 1963.According to Section 3(3), what should be the form of administrative reports laid before Parliament?",
+                hi: "Q.14 राजभाषा अधिनियम, 1963. धारा 3(3) के अनुसार, संसद में रखे जाने वाले प्रशासनिक रिपोर्टों का रूप क्या होगा?"
+            },
+            a: { en: "Only English", hi: "केवल अंग्रेज़ी" },
+            b: { en: "Only Hindi", hi: "केवल हिंदी" },
+            c: { en: "Both Hindi and English", hi: "हिंदी और अंग्रेज़ी दोनों" },
+            d: { en: "Regional language", hi: "क्षेत्रीय भाषा" },
+            correct: "c"
+        },
+        {
+            question: {
+                en: "Q.15 What type of wagon is BCN?",
+                hi: "Q.15 BCN वैगन किस प्रकार का है?"
+            },
+            a: { en: "Bogie flat wagon", hi: "बोगी फ्लैट वैगन" },
+            b: { en: "Bogie open wagon", hi: "बोगी ओपन वैगन" },
+            c: { en: "Bogie covered wagon fitted with air brakes", hi: "एयर ब्रेक लगे हुए बोगी कवरड वैगन" },
+            d: { en: "Hopper wagon", hi: "हॉप्पर वोगन" },
+            correct: "c"
+        },
+        {
+            question: {
+                en: "Q.16 BLCA/BLCB/BLLA/BLLB are used for what purpose?",
+                hi: "Q.16 BLCA/BLCB/BLLA/BLLB' किसके लिए उपयोग किए जाते हैं?"
+            },
+            a: { en: "Tank loading", hi: "टैंक लोडिंग" },
+            b: { en: "container Loading", hi: "कंटेनर लोडिंग" },
+            c: { en: "Coal Loading", hi: "कोयला लोडिंग" },
+            d: { en: "Steel Loading", hi: "स्टील लोडिंग" },
+            correct: "b"
+        },
+        {
+            question: {
+                en: "Q.17 Which equipment provides 'data evidence' for investigation of 'Unusual incidences'?",
+                hi: "Q.17 असामान्य घटनाओं' (Unusual incidences) की जांच के लिए कौन सा उपकरण 'डेटा साक्ष्य' प्रदान करता है?"
+            },
+            a: { en: "Block Instrument", hi: "ब्लॉक इंस्ट्रूमेंट" },
+            b: { en: "Relay Rack", hi: "रिले रैक" },
+            c: { en: "Data Logger", hi: "डेटा लॉगर" },
+            d: { en: "Track Circuit", hi: "ट्रैक सर्किट" },
+            correct: "c"
+        },
+        {
+            question: {
+                en: "Q.18 Interlocking may be provided between which of the following?",
+                hi: "Q.18 इंटरलॉकिंग का संबंध किन-किन के बीच हो सकता है?"
+            },
+            a: { en: "Signal & points", hi: "सिग्नल और पॉइंट" },
+            b: { en: "Signal & gate", hi: "सिग्नल और गेट" },
+            c: { en: "Signal & block instrument", hi: "सिग्नल और ब्लॉक इंस्ट्रूमेंट" },
+            d: { en: "All of the above", hi: "उपरोक्त सभी" },
+            correct: "d"
+        },
+        {
+            question: {
+                en: "Q.19 For new works, what is the normal height of the contact wire at the support point?",
+                hi: "Q.19 नए कार्यों के लिए, सपोर्ट पॉइंट पर कॉन्टैक्ट वायर (संपर्क तार) की सामान्य ऊंचाई क्या होती है?"
+            },
+            a: { en: "5.50 m", hi: "5.50 m" },
+            b: { en: "5.55 m", hi: "5.55 m" },
+            c: { en: "5.60 m", hi: "5.60 m" },
+            d: { en: "5.75 m", hi: "5.75 m" },
+            correct: "c"
+        },
+        {
+            question: {
+                en: "Q.20 When a shunt signal is placed below a stop signal, what does it display in the 'ON' position?",
+                hi: "Q.20 जब शंट सिग्नल किसी स्टॉप सिग्नल के नीचे लगाया जाता है, तो 'ON' स्थिति में यह क्या दिखाता है?"
+            },
+            a: { en: "No light", hi: "कोई प्रकाश नहीं" },
+            b: { en: "White light", hi: "सफेद बत्ती" },
+            c: { en: "Green light", hi: "हरी बत्ती" },
+            d: { en: "Red light", hi: "लाल बत्ती" },
+            correct: "a"
+        },
+        {
+            question: {
+                en: "Q.21 What is the permissible flatness limit for Goods Stock?",
+                hi: "Q.21 माल गाड़ियों के लिए अनुमत फ्लैटनेस सीमा कितनी है?"
+            },
+            a: { en: "40 mm", hi: "40 mm" },
+            b: { en: "50 mm", hi: "50 mm" },
+            c: { en: "60 mm", hi: "60 mm" },
+            d: { en: "70 mm", hi: "70 mm" },
+            correct: "c"
+        },
+        {
+            question: {
+                en: "Q.22 If both Starter and Advanced Starter are defective, how many authorities are issued?",
+                hi: "Q.22 यदि स्टार्टर और एडवांस्ड स्टार्टर दोनों खराब हों, तो कितने प्राधिकरण जारी किए जाते हैं?"
+            },
+            a: { en: "Two separate T/369(3b)", hi: "दो अलग-अलग T/369(3b)" },
+            b: { en: "A single T/369(3b)", hi: "एक ही T/369(3b)" },
+            c: { en: "Two separate T/409", hi: "दो अलग-अलग T/409" },
+            d: { en: "T/369(3b) for starter and T/409 for advance starter", hi: "स्टार्टर के लिए T/369 (3b) और एडवांस स्टार्टर के लिए T/409" },
+            correct: "b"
+        },
+        {
+            question: {
+                en: "Q.23 How many Private Numbers does SM exchange in case of failure of IB stop signal ?",
+                hi: "Q.23 IB स्टॉप सिग्नल डिफेक्टिव होने की स्थिति में SM कितने प्राइवेट नंबरों का आदान-प्रदान करता है?"
+            },
+            a: { en: "Only one Line Clear", hi: "केवल एक - लाइन क्लियर" },
+            b: { en: "Only one Section Clear", hi: "केवल एक - सेक्शन क्लियर" },
+            c: { en: "Two one Section Clear and one Line Clear", hi: "दो - एक सेक्शन क्लियर और दूसरा लाइन क्लियर" },
+            d: { en: "No Private Number required", hi: "कोई भी प्राइवेट नंबर आवश्यक नहीं" },
+            correct: "c"
+        },
+        {
+            question: {
+                en: "Q.24 In which register shall the Station Master (SM) record details of all Signal related failures?",
+                hi: "Q.24 स्टेशन मास्टर (SM) सिग्नल से सम्बंधित सभी विफलताओं का विवरण किस रजिस्टर में दर्ज करेगा?"
+            },
+            a: { en: "SI-24", hi: "SI-24" },
+            b: { en: "SI-4", hi: "SI-4" },
+            c: { en: "TSR", hi: "TSR" },
+            d: { en: "no recording is necessary", hi: "कोई रिकॉर्डिंग आवश्यक नहीं है" },
+            correct: "a"
+        },
+        {
+            question: {
+                en: "Q.25 What is the code for 'Cancel Last Signal' or 'Signal given in error'?",
+                hi: "Q.25 'पिछला सिग्नल रद्द करें' (Cancel Last Signal) या 'सिग्नल गलती से दिया गया' (Signal given in error) के लिए कोड क्या है?"
+            },
+            a: { en: "2 beats", hi: "2 घंटियाँ" },
+            b: { en: "3 beats", hi: "3 घंटियाँ" },
+            c: { en: "4 beats", hi: "4 घंटियाँ" },
+            d: { en: "5 beats", hi: "5 घंटियाँ" },
+            correct: "d"
+        },
+        {
+            question: {
+                en: "Q.26 In what condition should the operating handle of an isolator switch always be kept?",
+                hi: "Q.26 आइसोलेटर स्विच का ऑपरेटिंग हैंडल हमेशा किस स्थिति में रखा जाना चाहिए?"
+            },
+            a: { en: "Open", hi: "खुला" },
+            b: { en: "Closed", hi: "बंद" },
+            c: { en: "Half open", hi: "आधा खुला" },
+            d: { en: "Locked", hi: "लॉक (ताला लगा हुआ)" },
+            correct: "d"
+        },
+        {
+            question: {
+                en: "Q.27 Which part of the Constitution deals with the official language?",
+                hi: "Q.27 संविधान का कौन-सा भाग राजभाषा से संबंधित है?"
+            },
+            a: { en: "Part XVI", hi: "भाग XVI" },
+            b: { en: "Part XVII", hi: "भाग XVII" },
+            c: { en: "Part XVIII", hi: "भाग XVIII" },
+            d: { en: "Part XIV", hi: "भाग XIV" },
+            correct: "b"
+        },
+        {
+            question: {
+                en: "Q.28 When DLBI/UFSBI fails, which Authority to Proceed will be used?",
+                hi: "Q.28 जब DLBI/UFSBI विफल हो जाता है, उस स्थिति में कौन-सा प्रस्थान प्राधिकार प्रयोग किया जाएगा?"
+            },
+            a: { en: "T/369(3b)", hi: "T/369(3b)" },
+            b: { en: "T/369(3b)+Private number", hi: "T/369(3b)+Private number/प्राइवेट नंबर" },
+            c: { en: "T/511", hi: "T/511" },
+            d: { en: "T/512", hi: "T/512" },
+            correct: "b"
+        },
+        {
+            question: {
+                en: "Q.29 What exemption is provided for cabins of large yards with shunting activities?",
+                hi: "Q.29 बड़े यार्ड में शंटिंग गतिविधियों वाले कैबिन्स के लिए क्या छूट दी गई है?"
+            },
+            a: { en: "exchanging All Right Signal is not necessary", hi: "ऑल राइट सिग्नल का आदान-प्रदान आवश्यक नहीं है" },
+            b: { en: "exchanging All Right Signal is necessary", hi: "ऑल राइट सिग्नल का आदान-प्रदान आवश्यक है" },
+            c: { en: "exchanging All Right Signal is not necessary but must watch the train", hi: "ऑल राइट सिग्नल का आदान-प्रदान आवश्यक नहीं है लेकिन ट्रेन पर नजर रखनी है" },
+            d: { en: "Merely placing flag/lamp in view", hi: "सिर्फ झंडा/लैम्प नजर में रखना" },
+            correct: "c"
+        },
+        {
+            question: {
+                en: "Q.30 If a zonal railway needs to frame rules as per local conditions, which rules will it issue and by whom are they framed?",
+                hi: "Q.30 यदि किसी ज़ोनल रेलवे को स्थानीय परिस्थितियों के अनुसार नियम बनाने हों, तो उसे कौन-से नियम बनाने होंगे, और वे किस प्राधिकारी द्वारा बनाए जाते हैं?"
+            },
+            a: { en: "GR - By Railway Board", hi: "GR - रेलवे बोर्ड द्वारा" },
+            b: { en: "SR- By PCOM", hi: "SR- पी.सी.०.एम द्वारा" },
+            c: { en: "Approved Special Instructions - By CRS", hi: "विशेष अनुमोदित निर्देश- सी.आर.एस. द्वारा" },
+            d: { en: "Special Instructions - By Railway Board", hi: "विशेष निर्देश - रेलवे बोर्ड द्वारा" },
+            correct: "b"
+        },
+        {
+            question: {
+                en: "Q.31 For how long is the BPC of a Dedicated Parcel Train valid?",
+                hi: "Q.31 समर्पित पार्सल ट्रेन (Dedicated Parcel Train) का BPC कितने समय के लिए वैध होता है?"
+            },
+            a: { en: "7 days", hi: "7 दिन" },
+            b: { en: "10 days", hi: "10 दिन" },
+            c: { en: "12 days", hi: "12 दिन" },
+            d: { en: "15 days", hi: "15 दिन" },
+            correct: "b"
+        },
+        {
+            question: {
+                en: "Q.32 If an engine is attached at the rear, who ensures the brake continuity check?",
+                hi: "Q.32 अगर ट्रेन के पीछे इंजन जुड़ा हो तो ब्रेक कंटिन्यूटी चेक कौन करता है?"
+            },
+            a: { en: "Guard", hi: "गार्ड" },
+            b: { en: "Station Master", hi: "स्टेशन मास्टर" },
+            c: { en: "Conductor", hi: "कंडक्टर" },
+            d: { en: "Loco Pilot of rear engine", hi: "लोको पायलट ऑफ रियर इंजन" },
+            correct: "d"
+        },
+        {
+            question: {
+                en: "Q.33 Consider statements regarding objectives of IRPSM:\n1. Online creation of 'New Works' proposals.\n2. Replacing existing manual system.\n3. Managing staff salary.\nWhich among the above is/are correct:",
+                hi: "Q.33 IRPSM के उद्देश्यों के संबंध में निम्नलिखित कथनों पर विचार करें:\n1. 'नए कार्यों' के प्रस्तावों का ऑनलाइन निर्माण ।\n2. मौजूदा मैनुअल सिस्टम को बदलना ।\n3. कर्मचारियों के वेतन का प्रबंधन करना।\nउपरोक्त में से कौन सा/से सही है:"
+            },
+            a: { en: "Only 1 and 2 are correct", hi: "केवल 1 और 2 सही हैं" },
+            b: { en: "Only 2 and 3 are correct", hi: "केवल 2 और 3 सही हैं" },
+            c: { en: "Only 1 and 3 are correct", hi: "केवल 1 और 3 सही हैं" },
+            d: { en: "All 1, 2 and 3 are correct", hi: "1, 2 और 3 सभी सही हैं" },
+            correct: "a"
+        },
+        {
+            question: {
+                en: "Q.34 What is the most important condition before resetting BPAC?",
+                hi: "Q.34 बीपीएसी (BPAC) को रीसेट करने से पहले सबसे महत्वपूर्ण शर्त क्या है?"
+            },
+            a: { en: "Taking Traffic Block", hi: "ट्रैफिक ब्लॉक लेना" },
+            b: { en: "Calling S&T staff", hi: "एस एंड टी स्टाफ को बुलाना" },
+            c: { en: "Opening Relay Room", hi: "रिले रूम खोलना" },
+            d: { en: "Verifying that preceding train has arrived complete", hi: "यह सत्यापित करना कि पिछली ट्रेन पूरी आ गई है" },
+            correct: "d"
+        },
+        {
+            question: {
+                en: "Q.35 What is the main purpose of isolation?",
+                hi: "Q.35 आइसोलेशन का मुख्य उद्देश्य क्या है?"
+            },
+            a: { en: "To safely separate one line from another", hi: "एक line को दूसरी line से सुरक्षित रूप से अलग करना" },
+            b: { en: "Connecting loop line to main line", hi: "मुख्य लाइन से लूप लाइन को जोड़ना" },
+            c: { en: "To store vehicles in yard", hi: "यार्ड में गाड़ियों को स्टोर करना" },
+            d: { en: "Issuing caution order", hi: "कौसन आर्डर जारी करना" },
+            correct: "a"
+        },
+        {
+            question: {
+                en: "Q.36 What is the bell code for \"Train Entering Block Section\" (TES)?",
+                hi: "Q.36 \"ब्लॉक सेक्शन में प्रवेश करने वाली ट्रेन\" (TES) के लिए बेल कोड क्या है?"
+            },
+            a: { en: "000", hi: "000" },
+            b: { en: "0000", hi: "0000" },
+            c: { en: "O", hi: "O" },
+            d: { en: "000000", hi: "000000" },
+            correct: "a"
+        }
+    ];
+
+    let currentQuiz = 0;
+    let score = 0;
+    let totalSecondsLeft = 30 * 60; 
+    let examTimerInterval;
+    let pDetails = { name: "", designation: "", station: "" };
+    let isExamSubmitted = false;
+    let submissionStatus = "Completed";
+    let selectedAnswer = null;
+    let answers = [];
+
+    let startPage, regPage, quizPage, endPage, adminPage;
+    let quizForm, questionEl, optionsContainer, nextBtn, previousBtn, timerEl, scoreSummaryEl, adminTableBody;
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const ADMIN_PASSWORD = "Operating@123"; 
+
+        startPage = document.getElementById('start-page');
+        regPage = document.getElementById('reg-page');
+        quizPage = document.getElementById('quiz-page');
+        endPage = document.getElementById('end-page');
+        adminPage = document.getElementById('admin-page');
+        
+        quizForm = document.getElementById('quiz-form');
+        questionEl = document.getElementById('question');
+        optionsContainer = document.getElementById('options');
+        nextBtn = document.getElementById('next-button');
+        previousBtn = document.getElementById('previous-button');
+        timerEl = document.getElementById('timer');
+        scoreSummaryEl = document.getElementById('score-summary');
+        adminTableBody = document.getElementById('admin-table-body');
+
+        applyLanguageStrings();
+
+        document.getElementById('start-btn').addEventListener('click', () => {
+            startPage.classList.add('hidden');
+            regPage.classList.remove('hidden');
+        });
+
+        document.getElementById('go-admin-btn').addEventListener('click', () => {
+            const userInput = prompt("Enter Administration Security Password:");
+            if (userInput === ADMIN_PASSWORD) {
+                startPage.classList.add('hidden');
+                document.getElementById('lang-switcher').classList.add('hidden'); 
+                adminPage.classList.remove('hidden');
+                loadAdminRecords();
+            } else if (userInput !== null) {
+                alert("Access Denied: Invalid Security Password.");
+            }
+        });
+
+        document.getElementById('exit-admin-btn').addEventListener('click', () => {
+            adminPage.classList.add('hidden');
+            document.getElementById('lang-switcher').classList.remove('hidden');
+            startPage.classList.remove('hidden');
+        });
+
+        quizForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            pDetails.name = document.getElementById('staff-name').value.trim();
+            pDetails.designation = document.getElementById('staff-desig').value.trim();
+            pDetails.station = document.getElementById('staff-station').value.trim();
+            
+            regPage.classList.add('hidden');
+            quizPage.classList.remove('hidden');
+            
+            answers = new Array(quizData.length).fill(null);
+            currentQuiz = 0;
+            score = 0;
+            startGlobalExamTimer();
+            renderQuestionPalette();
+            loadQuiz();
+        });
+
+        nextBtn.addEventListener('click', nextQuestion);
+        previousBtn.addEventListener('click', previousQuestion);
+        
+        document.getElementById('finish-btn').addEventListener('click', function() {
+            resetQuizStateToHome();
+        });
+
+        document.getElementById('download-master-btn').addEventListener('click', downloadMasterCSV);
+        
+        document.getElementById('clear-records-btn').addEventListener('click', function() {
+            if(confirm("Are you absolutely sure you want to permanently delete all recorded staff results?")) {
+                localStorage.removeItem('railway_quiz_results');
+                loadAdminRecords();
+            }
+        });
+    });
+
+    function switchLanguage(lang) {
+        currentLang = lang;
+        document.getElementById('lang-en-btn').classList.toggle('active', lang === 'en');
+        document.getElementById('lang-hi-btn').classList.toggle('active', lang === 'hi');
+        
+        applyLanguageStrings();
+        
+        if (quizPage && !quizPage.classList.contains('hidden')) {
+            updateQuizLanguageOnly();
+        }
+    }
+
+    function applyLanguageStrings() {
+        const labels = uiLabels[currentLang];
+        
+        document.getElementById('main-title').innerText = labels.mainTitle;
+        document.getElementById('main-sub').innerText = labels.mainSub;
+        document.getElementById('start-btn').innerText = labels.startBtn;
+        document.getElementById('go-admin-btn').innerText = labels.adminBtn;
+        
+        document.getElementById('reg-title').innerText = labels.regTitle;
+        document.getElementById('reg-sub').innerText = labels.regSub;
+        document.getElementById('lbl-name').innerText = labels.lblName;
+        document.getElementById('lbl-desig').innerText = labels.lblDesig;
+        document.getElementById('lbl-station').innerText = labels.lblStation;
+        
+        document.getElementById('staff-name').placeholder = labels.phName;
+        document.getElementById('staff-desig').placeholder = labels.phDesig;
+        document.getElementById('staff-station').placeholder = labels.phStation;
+        document.getElementById('reg-submit-btn').innerText = labels.regSubmit;
+        
+        document.getElementById('exam-terminal-title').innerText = labels.examTitle;
+        nextBtn.innerText = currentQuiz === quizData.length - 1 ? labels.submitBtn : labels.nextBtn;
+        nextBtn.classList.toggle('submit-btn', currentQuiz === quizData.length - 1);
+        previousBtn.innerText = labels.previousBtn;
+        document.getElementById('palette-heading').innerText = labels.paletteTitle;
+        document.getElementById('legend-unanswered').innerText = labels.unanswered;
+        document.getElementById('legend-answered').innerText = labels.answered;
+        document.getElementById('legend-current').innerText = labels.currentQuestion;
+        updateTimerDisplay();
+        renderQuestionPalette();
+
+        document.getElementById('thank-you-title').innerText = labels.thankYou;
+        document.getElementById('end-sub').innerText = labels.mainSub;
+        document.getElementById('finish-btn').innerText = labels.finishBtn;
+        
+        if (isExamSubmitted) {
+            renderFinalScoreSummary();
+        }
+    }
+
+    function startGlobalExamTimer() {
+        updateTimerDisplay();
+        
+        examTimerInterval = setInterval(() => {
+            totalSecondsLeft--;
+            updateTimerDisplay();
+            
+            if (totalSecondsLeft <= 0) {
+                clearInterval(examTimerInterval);
+                submissionStatus = "Timeout Auto-Submit";
+                saveAndShowResults();
+            }
+        }, 1000);
+    }
+
+    function updateTimerDisplay() {
+        if (!timerEl) return;
+        const minutes = Math.floor(totalSecondsLeft / 60);
+        const seconds = totalSecondsLeft % 60;
+        const paddedMinutes = minutes.toString().padStart(2, '0');
+        const paddedSeconds = seconds.toString().padStart(2, '0');
+        timerEl.innerText = `${uiLabels[currentLang].timeLeft}: ${paddedMinutes}:${paddedSeconds}`;
+    }
+
+    function loadQuiz() {
+        if (isExamSubmitted) return;
+
+        if (currentQuiz >= quizData.length) {
+            saveAndShowResults();
+            return;
+        }
+
+        selectedAnswer = answers[currentQuiz];
+        updateQuizLanguageOnly();
+        renderQuestionPalette();
+    }
+
+    function updateQuizLanguageOnly() {
+        if (currentQuiz >= quizData.length) return;
+
+        const labels = uiLabels[currentLang];
+        const currentQuizData = quizData[currentQuiz];
+        questionEl.innerText = currentQuizData.question[currentLang];
+        optionsContainer.innerHTML = '';
+
+        ['a', 'b', 'c', 'd'].forEach(letter => {
+            const li = document.createElement('li');
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.innerText = currentQuizData[letter][currentLang];
+            button.setAttribute('data-ans', letter);
+
+            if (selectedAnswer === letter) button.classList.add('selected');
+            button.addEventListener('click', () => selectAnswer(button, letter));
+
+            li.appendChild(button);
+            optionsContainer.appendChild(li);
+        });
+
+        previousBtn.disabled = currentQuiz === 0;
+        previousBtn.style.opacity = currentQuiz === 0 ? '0.55' : '1';
+        nextBtn.innerText = currentQuiz === quizData.length - 1 ? labels.submitBtn : labels.nextBtn;
+        nextBtn.classList.toggle('submit-btn', currentQuiz === quizData.length - 1);
+        nextBtn.style.display = 'block';
+    }
+
+    function selectAnswer(selectedButton, chosenLetter) {
+        selectedAnswer = chosenLetter;
+        answers[currentQuiz] = chosenLetter;
+
+        const buttons = optionsContainer.getElementsByTagName('button');
+        for (let btn of buttons) btn.classList.remove('selected');
+        selectedButton.classList.add('selected');
+
+        renderQuestionPalette();
+    }
+
+    function renderQuestionPalette() {
+        const grid = document.getElementById('question-palette-grid');
+        const summary = document.getElementById('palette-summary');
+        if (!grid || !summary) return;
+
+        const labels = uiLabels[currentLang];
+        grid.innerHTML = '';
+        let answeredCount = 0;
+
+        quizData.forEach((item, index) => {
+            const isAnswered = Boolean(answers[index]);
+            if (isAnswered) answeredCount++;
+
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'palette-btn' + (isAnswered ? ' answered' : '') + (index === currentQuiz ? ' current' : '');
+            btn.textContent = String(index + 1);
+            btn.setAttribute('aria-label', `Question ${index + 1}${isAnswered ? ', answered' : ', unanswered'}`);
+            btn.setAttribute('aria-current', index === currentQuiz ? 'step' : 'false');
+            btn.title = `Question ${index + 1} - ${isAnswered ? labels.answered : labels.unanswered}`;
+            btn.addEventListener('click', () => {
+                if (isExamSubmitted) return;
+                currentQuiz = index;
+                selectedAnswer = answers[currentQuiz];
+                updateQuizLanguageOnly();
+                renderQuestionPalette();
+            });
+            grid.appendChild(btn);
+        });
+
+        summary.textContent = `${labels.answeredCount}: ${answeredCount} ${labels.ofLabel} ${quizData.length}`;
+    }
+
+    function nextQuestion() {
+        if (currentQuiz >= quizData.length - 1) {
+            const unansweredCount = answers.filter(answer => !answer).length;
+            if (unansweredCount > 0) {
+                const confirmText = currentLang === 'hi'
+                    ? `${unansweredCount} प्रश्न अनुत्तरित हैं। क्या आप फिर भी प्रश्नोत्तरी जमा करना चाहते हैं?`
+                    : `${unansweredCount} question(s) are unanswered. Do you want to submit the quiz anyway?`;
+                if (!confirm(confirmText)) return;
+            }
+            saveAndShowResults();
+            return;
+        }
+
+        currentQuiz++;
+        loadQuiz();
+    }
+
+    function previousQuestion() {
+        if (currentQuiz > 0) {
+            currentQuiz--;
+            loadQuiz();
+        }
+    }
+
+    function saveAndShowResults() {
+        if (isExamSubmitted) return; 
+        isExamSubmitted = true;
+        
+        clearInterval(examTimerInterval);
+
+        // Calculate from the saved answer array so revisiting questions never double-counts.
+        score = answers.reduce((total, answer, index) =>
+            total + (answer && answer === quizData[index].correct ? 1 : 0), 0);
+
+        const now = new Date();
+        const localizedTimestamp = now.toLocaleDateString() + " " + now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
+
+        const record = {
+            timestamp: localizedTimestamp,
+            name: pDetails.name,
+            designation: pDetails.designation,
+            station: pDetails.station,
+            score: `${score}/${quizData.length}`,
+            status: submissionStatus
+        };
+
+        let existingRecords = JSON.parse(localStorage.getItem('railway_quiz_results')) || [];
+        existingRecords.push(record);
+        localStorage.setItem('railway_quiz_results', JSON.stringify(existingRecords));
+
+        quizPage.classList.add('hidden');
+        endPage.classList.remove('hidden');
+        
+        renderFinalScoreSummary();
+    }
+
+    function renderFinalScoreSummary() {
+        const labels = uiLabels[currentLang];
+        let messageHeader = submissionStatus === "Completed" ? labels.msgCompleted : labels.msgTimeout;
+        
+        scoreSummaryEl.innerHTML = `
+            ${messageHeader}, <strong>${pDetails.name}</strong>!<br>
+            ${labels.msgRecorded}<br>
+            ${labels.msgScore}: <strong>${score} ${labels.msgOutOf} ${quizData.length}</strong><br>
+            <small style='color: #777;'>${labels.msgStatus}: ${submissionStatus}</small>
+        `;
+    }
+
+    function resetQuizStateToHome() {
+        currentQuiz = 0;
+        score = 0;
+        totalSecondsLeft = 30 * 60;
+        isExamSubmitted = false;
+        submissionStatus = "Completed";
+        pDetails = { name: "", designation: "", station: "" };
+        selectedAnswer = null;
+        
+        quizForm.reset();
+        switchLanguage('en'); 
+        
+        endPage.classList.add('hidden');
+        quizPage.classList.add('hidden');
+        regPage.classList.add('hidden');
+        adminPage.classList.add('hidden');
+        startPage.classList.remove('hidden');
+    }
+
+    function loadAdminRecords() {
+        let existingRecords = JSON.parse(localStorage.getItem('railway_quiz_results')) || [];
+        adminTableBody.innerHTML = '';
+
+        if(existingRecords.length === 0) {
+            adminTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:#777;">No staff records found yet.</td></tr>`;
+            return;
+        }
+
+        existingRecords.forEach(rec => {
+            const tr = document.createElement('tr');
+            const currentStatus = rec.status || "Completed"; 
+            const currentTimestamp = rec.timestamp || "N/A";
+            
+            tr.innerHTML = `
+                <td>${currentTimestamp}</td>
+                <td>${rec.name}</td>
+                <td>${rec.designation}</td>
+                <td>${rec.station}</td>
+                <td><strong>${rec.score}</strong></td>
+                <td><em>${currentStatus}</em></td>
+            `;
+            adminTableBody.appendChild(tr);
+        });
+    }
+
+    function downloadMasterCSV() {
+        let existingRecords = JSON.parse(localStorage.getItem('railway_quiz_results')) || [];
+        if(existingRecords.length === 0) {
+            alert("No records to export yet!");
+            return;
+        }
+
+        let csvContent = "data:text/csv;charset=utf-8,\uFEFF"; 
+        csvContent += "Date & Time Completed,Staff Name,Designation,Station Code,Score Obtained,Submission Status\n";
+
+        existingRecords.forEach(rec => {
+            const currentStatus = rec.status || "Completed";
+            const currentTimestamp = rec.timestamp || "N/A";
+            csvContent += `"${currentTimestamp}","${rec.name}","${rec.designation}","${rec.station}","\t${rec.score}","${currentStatus}"\n`;
+        });
+
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "Safety_Quiz_Competition_2026-27_Results.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
+
+</body>
+</html>
