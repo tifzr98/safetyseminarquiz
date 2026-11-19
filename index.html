@@ -439,400 +439,924 @@
 
     const quizData = [
         {
-            question: {
-                en: "Q.1 When is a fresh SWR issued?",
-                hi: "Q.1 SWR कब नया जारी किया जाता है ?"
-            },
-            a: { en: "Every 5 years or 5 amendments", hi: "हर 5 वर्ष या 5 संशोधन पर्चियों के बाद" },
-            b: { en: "Every 3 years or 3 amendments", hi: "हर 3 वर्ष या 3 संशोधन पर्चियों के बाद" },
-            c: { en: "Every 10 years or 10 amendments", hi: "हर 10 वर्ष या 10 संशोधन पर्चियों के बाद" },
-            d: { en: "Every year", hi: "हर वर्ष" },
-            correct: "a"
+                    "question": {
+                                "en": "Q.1 GWR is",
+                                "hi": "प्रश्न 1. जीडब्ल्यूआर (GWR) है?"
+                    },
+                    "a": {
+                                "en": "General Working Rules",
+                                "hi": "General Working Rules"
+                    },
+                    "b": {
+                                "en": "Gate Working Rules",
+                                "hi": "Gate Working Rules"
+                    },
+                    "c": {
+                                "en": "Guard Working Rules",
+                                "hi": "Guard Working Rules"
+                    },
+                    "d": {
+                                "en": "Gradient Working Rules",
+                                "hi": "Gradient Working Rules"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.2 What is the clearance condition for an A-Class ODC?",
-                hi: "Q.2 ए-क्लास ओ.डी.सी. में न्यूनतम क्लियरेंस की शर्त क्या है?"
-            },
-            a: { en: "Less than 4\"", hi: "4\" से कम" },
-            b: { en: "Between 4\" to 6\"", hi: "4\" से 6\"" },
-            c: { en: "Between 6\" to less than 9\"", hi: "6\" से 9\" से कम" },
-            d: { en: "9\" or above", hi: "9\" या उससे अधिक" },
-            correct: "d"
+                    "question": {
+                                "en": "Q.2 What are the station classifications?",
+                                "hi": "प्रश्न 2. स्टेशन वर्गीकरण क्या हैं?"
+                    },
+                    "a": {
+                                "en": "Class A, Class B and Class C",
+                                "hi": "Class A, Class B and Class C"
+                    },
+                    "b": {
+                                "en": "Class I, Class II and Class III",
+                                "hi": "Class I, Class II and Class III"
+                    },
+                    "c": {
+                                "en": "Major, Minor and Halt",
+                                "hi": "Major, Minor and Halt"
+                    },
+                    "d": {
+                                "en": "Block, Non-Block and Flag",
+                                "hi": "Block, Non-Block and Flag"
+                    },
+                    "correct": "a"
         },
         {
-            question: {
-                en: "Q.3 What indicates FIBA activation?",
-                hi: "Q.3 FIBA एक्टिवेशन का संकेत क्या होता है?"
-            },
-            a: { en: "Red indicator and hissing sound", hi: "लाल इंडिकेटर और हिसिंग आवाज़" },
-            b: { en: "Green indicator", hi: "हरा इंडिकेटर" },
-            c: { en: "Siren alarm", hi: "सायरन बजाना" },
-            d: { en: "Train speed increases", hi: "ट्रेन की गति बढ़ जाती है" },
-            correct: "a"
+                    "question": {
+                                "en": "Q.3 'ON' aspect means",
+                                "hi": "प्रश्न 3. 'ON' आस्पेक्ट का मतलब है:"
+                    },
+                    "a": {
+                                "en": "Proceed with caution",
+                                "hi": "Proceed with caution"
+                    },
+                    "b": {
+                                "en": "Most restrictive aspect (Stop / Danger)",
+                                "hi": "Most restrictive aspect (Stop / Danger)"
+                    },
+                    "c": {
+                                "en": "Proceed at normal speed",
+                                "hi": "Proceed at normal speed"
+                    },
+                    "d": {
+                                "en": "Shunting permitted",
+                                "hi": "Shunting permitted"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.4 Running time of slowest train = 6 min, Block Operation Time = 2 min, Efficiency Factor = 80%. What is the line capacity for 24 hours?",
-                hi: "Q.4 एक सेक्शन पर सबसे धीमी ट्रेन का रनिंग टाइम 6 मिनट है और ब्लॉक ऑपरेशन समय 2 मिनट है। दक्षता कारक 80% है। 24 घंटे में इस सेक्शन की लाइन कैपेसिटी कितनी होगी?"
-            },
-            a: { en: "180 trains", hi: "180 ट्रेने" },
-            b: { en: "144 trains", hi: "144 ट्रेने" },
-            c: { en: "96 trains", hi: "96 ट्रेने" },
-            d: { en: "data is not sufficient", hi: "डाटा प्रयाप्त नहीं है" },
-            correct: "b"
+                    "question": {
+                                "en": "Q.4 What is the aspect of Distant signal at 'ON'?",
+                                "hi": "प्रश्न 4. डिस्टेंट सिग्नल (Distant) का 'ON' में क्या मतलब/आस्पेक्ट है?"
+                    },
+                    "a": {
+                                "en": "Stop dead",
+                                "hi": "Stop dead"
+                    },
+                    "b": {
+                                "en": "Caution (single yellow in single distant territory) / Attention (double yellow in double distant territory)",
+                                "hi": "Caution (single yellow in single distant territory) / Attention (double yellow in double distant territory)"
+                    },
+                    "c": {
+                                "en": "Proceed at full line speed",
+                                "hi": "Proceed at full line speed"
+                    },
+                    "d": {
+                                "en": "Calling-on permission",
+                                "hi": "Calling-on permission"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.5 Up to how many days in advance can empty wagons be marked \"sick\" for POH?",
-                hi: "Q.5 खाली डिब्बों को POH के लिए कितने दिन पहले तक \"सिक\" मार्क किया जा सकता है?"
-            },
-            a: { en: "15 days", hi: "15 दिन" },
-            b: { en: "30 days", hi: "30 दिन" },
-            c: { en: "45 days", hi: "45 दिन" },
-            d: { en: "60 days", hi: "60 दिन" },
-            correct: "b"
+                    "question": {
+                                "en": "Q.5 Calling-on signal is identified by",
+                                "hi": "प्रश्न 5. कॉलिंग-ऑन सिग्नल की पहचान किस प्रकार होती है?"
+                    },
+                    "a": {
+                                "en": "'G' marker",
+                                "hi": "'G' marker"
+                    },
+                    "b": {
+                                "en": "'P' marker",
+                                "hi": "'P' marker"
+                    },
+                    "c": {
+                                "en": "'C' marker / illuminated letter 'C'",
+                                "hi": "'C' marker / illuminated letter 'C'"
+                    },
+                    "d": {
+                                "en": "'A' marker",
+                                "hi": "'A' marker"
+                    },
+                    "correct": "c"
         },
         {
-            question: {
-                en: "Q.6 Apart from Station Master Whose signatures are mandatory on T/806?",
-                hi: "Q.6 टी/806 पर स्टेशन मास्टर के अलावा किनके हस्ताक्षर अनिवार्य हैं?"
-            },
-            a: { en: "Only Loco Pilot", hi: "केवल लोको पायलट" },
-            b: { en: "Guard and Shunting Jamadar", hi: "गार्ड और शंटिंग जमादार" },
-            c: { en: "Both Guard/Shunting Jamadar and Loco Pilot", hi: "गार्ड/शंटिंग जमादार और लोको पायलट दोनों" },
-            d: { en: "Only Station Master", hi: "केवल स्टेशन मास्टर" },
-            correct: "c"
+                    "question": {
+                                "en": "Q.6 Gate Stop signal is identified by",
+                                "hi": "प्रश्न 6. गेट स्टॉप सिग्नल की पहचान किस प्रकार होती है?"
+                    },
+                    "a": {
+                                "en": "'P' marker",
+                                "hi": "'P' marker"
+                    },
+                    "b": {
+                                "en": "'G' marker (normally)",
+                                "hi": "'G' marker (normally)"
+                    },
+                    "c": {
+                                "en": "'S' marker",
+                                "hi": "'S' marker"
+                    },
+                    "d": {
+                                "en": "'W' marker",
+                                "hi": "'W' marker"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.7 Which of the following States is included in Region A?",
-                hi: "Q.7 निम्न में से कौन-सा राज्य Region A में शामिल है?"
-            },
-            a: { en: "Maharashtra", hi: "महाराष्ट्र" },
-            b: { en: "Uttar Pradesh", hi: "उत्तर प्रदेश" },
-            c: { en: "Punjab", hi: "पंजाब" },
-            d: { en: "Gujarat", hi: "गुजरात" },
-            correct: "b"
+                    "question": {
+                                "en": "Q.7 Colour light distant signal is identified by",
+                                "hi": "प्रश्न 7. रंग प्रकाश डिस्टेंट सिग्नल की पहचान किस प्रकार होती है?"
+                    },
+                    "a": {
+                                "en": "'G' marker",
+                                "hi": "'G' marker"
+                    },
+                    "b": {
+                                "en": "'P' marker",
+                                "hi": "'P' marker"
+                    },
+                    "c": {
+                                "en": "'C' marker",
+                                "hi": "'C' marker"
+                    },
+                    "d": {
+                                "en": "'D' marker",
+                                "hi": "'D' marker"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.8 Braking distance must always be less than what?",
-                hi: "Q.8 ब्रेकिंग दूरी किससे कम होनी चाहिए?"
-            },
-            a: { en: "Maximum length of train", hi: "ट्रेन की अधिकतम लंबाई" },
-            b: { en: "Tractive effort of locomotive", hi: "लोकोमोटिव का ट्रैक्टिव एफर्ट" },
-            c: { en: "Axle load limit", hi: "एक्सल लोड सीमा" },
-            d: { en: "Sighting distance of the first stop signal", hi: "प्रथम स्टॉप सिग्नल की साइटिंग दूरी" },
-            correct: "d"
+                    "question": {
+                                "en": "Q.8 The speed of engine shunting shall not exceed in pushing shunting",
+                                "hi": "प्रश्न 8. पुश-बैक (pushing) शंटिंग में इंजन शंटिंग की गति किससे अधिक नहीं होनी चाहिए?"
+                    },
+                    "a": {
+                                "en": "5 km/h",
+                                "hi": "5 km/h"
+                    },
+                    "b": {
+                                "en": "10 km/h",
+                                "hi": "10 km/h"
+                    },
+                    "c": {
+                                "en": "15 km/h (with Guard in leading vehicle as per SR; 10 km/h otherwise)",
+                                "hi": "15 km/h (with Guard in leading vehicle as per SR; 10 km/h otherwise)"
+                    },
+                    "d": {
+                                "en": "20 km/h",
+                                "hi": "20 km/h"
+                    },
+                    "correct": "c"
         },
         {
-            question: {
-                en: "Q.9 If the CRS does not want to investigate serious accidents then who will investigate?",
-                hi: "Q.9 यदि सी.आर.एस गंभीर दुर्घटनाओं की जाँच नहीं करना चाहता है तो जाँच कौन करेगा ?"
-            },
-            a: { en: "Junior officers under DRM", hi: "डीआरएम के अधीन कनिष्ठ अधिकारी" },
-            b: { en: "JAG officers under DRM", hi: "डीआरएम के अधीन जेएजी अधिकारी" },
-            c: { en: "Committee of S A Grade Officers approved by GM", hi: "जीएम द्वारा अनुमोदित एस ए ग्रेड अधिकारियों की समिति" },
-            d: { en: "DRM himself", hi: "डीआरएम स्वयं" },
-            correct: "c"
+                    "question": {
+                                "en": "Q.9 Whenever wagons are stabled in a station, they shall be secured by number of safety chains",
+                                "hi": "प्रश्न 9. जब भी वैगनों को स्टेशन में खड़ा किया जाता है, तो उन्हें कितनी सुरक्षा श्रृंखलाओं (safety chains) द्वारा सुरक्षित किया जाएगा?"
+                    },
+                    "a": {
+                                "en": "At least 1 chain",
+                                "hi": "At least 1 chain"
+                    },
+                    "b": {
+                                "en": "At least 2 chains (one at each end)",
+                                "hi": "At least 2 chains (one at each end)"
+                    },
+                    "c": {
+                                "en": "At least 3 chains",
+                                "hi": "At least 3 chains"
+                    },
+                    "d": {
+                                "en": "At least 4 chains",
+                                "hi": "At least 4 chains"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.10 Before uncoupling vehicles in a gradient section (1:400 or steeper), what must be done compulsorily?",
-                hi: "Q.10 ग्रेडिएंट सेक्शन (1:400 या ज्यादा) में गाड़ियों को अनकपल करने से पहले क्या करना अनिवार्य है?"
-            },
-            a: { en: "Inform SM first", hi: "पहले SM को सूचना दें" },
-            b: { en: "Apply hand brakes and use sprags/wedges/skids", hi: "हैंड ब्रेक लगाएँ और स्प्रेग/वेज/स्किड इस्तेमाल करें" },
-            c: { en: "Uncouple directly", hi: "सीधे अनकपल कर दें" },
-            d: { en: "Take only Guard's permission", hi: "केवल गार्ड की अनुमति लें" },
-            correct: "b"
+                    "question": {
+                                "en": "Q.10 Whenever wagons are stabled, they shall be secured by number of skids",
+                                "hi": "प्रश्न 10. जब भी वैगनों को स्थिर किया जाता है, तो उन्हें कितने स्किड्स / वुडन वेजेज (skids / wedges) द्वारा सुरक्षित किया जाएगा?"
+                    },
+                    "a": {
+                                "en": "2 skids",
+                                "hi": "2 skids"
+                    },
+                    "b": {
+                                "en": "4 skids (two at each end below outermost wheels)",
+                                "hi": "4 skids (two at each end below outermost wheels)"
+                    },
+                    "c": {
+                                "en": "6 skids",
+                                "hi": "6 skids"
+                    },
+                    "d": {
+                                "en": "8 skids",
+                                "hi": "8 skids"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.11 Which machine is used for Turnout packing?",
-                hi: "Q.11 टर्नआउट पैकिंग (Turnout packing) के लिए किस मशीन का उपयोग किया जाता है?"
-            },
-            a: { en: "BCM", hi: "बीसीएम" },
-            b: { en: "FRM", hi: "एफआरएम" },
-            c: { en: "UNI", hi: "यूएनआई" },
-            d: { en: "TRT", hi: "टीआरटी" },
-            correct: "c"
+                    "question": {
+                                "en": "Q.11 Shunting order form number is",
+                                "hi": "प्रश्न 11. शंटिंग ऑर्डर फॉर्म नंबर क्या है?"
+                    },
+                    "a": {
+                                "en": "Form T/509",
+                                "hi": "Form T/509"
+                    },
+                    "b": {
+                                "en": "Form T/512",
+                                "hi": "Form T/512"
+                    },
+                    "c": {
+                                "en": "Form T/806",
+                                "hi": "Form T/806"
+                    },
+                    "d": {
+                                "en": "Form T/C 1425",
+                                "hi": "Form T/C 1425"
+                    },
+                    "correct": "c"
         },
         {
-            question: {
-                en: "Q.12 What is the ROH interval of Brake Vans (BVZI, BVZC, BVCM)?",
-                hi: "Q.12 ब्रेक वैन (BVZI, BVZC, BVCM) का ROH अंतराल कितने महीनों का है?"
-            },
-            a: { en: "24 months", hi: "24 माह" },
-            b: { en: "20 months", hi: "20 माह" },
-            c: { en: "18 months", hi: "18 माह" },
-            d: { en: "12 month", hi: "12 माह" },
-            correct: "d"
+                    "question": {
+                                "en": "Q.12 When a Hot Axle is noticed in a running train, it must be stopped",
+                                "hi": "प्रश्न 12. चलती ट्रेन में जब हॉट एक्सल दिखे तो उसे कब रोकना चाहिए?"
+                    },
+                    "a": {
+                                "en": "At the next junction station",
+                                "hi": "At the next junction station"
+                    },
+                    "b": {
+                                "en": "Immediately / at the earliest possible point",
+                                "hi": "Immediately / at the earliest possible point"
+                    },
+                    "c": {
+                                "en": "After clearing the block section only",
+                                "hi": "After clearing the block section only"
+                    },
+                    "d": {
+                                "en": "Only if smoke is visible",
+                                "hi": "Only if smoke is visible"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.13 Where is a Traffic Gate situated?",
-                hi: "Q.13 ट्रैफिक गेट कहाँ स्थित होता है?"
-            },
-            a: { en: "Within the outermost stop signal", hi: "बाहरी स्टॉप सिग्नल के भीतर" },
-            b: { en: "Outside the outermost stop signal", hi: "बाहरी स्टॉप सिग्नल के बाहर" },
-            c: { en: "On platform", hi: "प्लेटफॉर्म पर" },
-            d: { en: "On shunting line", hi: "शंटिंग लाइन पर" },
-            correct: "a"
+                    "question": {
+                                "en": "Q.13 For fog signalling, two detonators should be placed at ___ metres (apart)",
+                                "hi": "प्रश्न 13. फॉग सिगनलिंग के लिए दो डेटोनेटरों को कितनी दूरी (अंतराल) पर रखा जाना चाहिए?"
+                    },
+                    "a": {
+                                "en": "5 metres apart",
+                                "hi": "5 metres apart"
+                    },
+                    "b": {
+                                "en": "10 metres apart",
+                                "hi": "10 metres apart"
+                    },
+                    "c": {
+                                "en": "25 metres apart",
+                                "hi": "25 metres apart"
+                    },
+                    "d": {
+                                "en": "50 metres apart",
+                                "hi": "50 metres apart"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.14 Official Languages Act, 1963.According to Section 3(3), what should be the form of administrative reports laid before Parliament?",
-                hi: "Q.14 राजभाषा अधिनियम, 1963. धारा 3(3) के अनुसार, संसद में रखे जाने वाले प्रशासनिक रिपोर्टों का रूप क्या होगा?"
-            },
-            a: { en: "Only English", hi: "केवल अंग्रेज़ी" },
-            b: { en: "Only Hindi", hi: "केवल हिंदी" },
-            c: { en: "Both Hindi and English", hi: "हिंदी और अंग्रेज़ी दोनों" },
-            d: { en: "Regional language", hi: "क्षेत्रीय भाषा" },
-            correct: "c"
+                    "question": {
+                                "en": "Q.14 While receiving a train on an obstructed line, hand signal shall be exhibited ___ metres from the obstruction",
+                                "hi": "प्रश्न 14. बाधित लाइन पर ट्रेन को रिसीव करते समय अड़चन से कितनी दूरी पर हाथ का इशारा (hand signal) दिखाया जाएगा?"
+                    },
+                    "a": {
+                                "en": "15 metres",
+                                "hi": "15 metres"
+                    },
+                    "b": {
+                                "en": "30 metres",
+                                "hi": "30 metres"
+                    },
+                    "c": {
+                                "en": "45 metres",
+                                "hi": "45 metres"
+                    },
+                    "d": {
+                                "en": "60 metres",
+                                "hi": "60 metres"
+                    },
+                    "correct": "c"
         },
         {
-            question: {
-                en: "Q.15 What type of wagon is BCN?",
-                hi: "Q.15 BCN वैगन किस प्रकार का है?"
-            },
-            a: { en: "Bogie flat wagon", hi: "बोगी फ्लैट वैगन" },
-            b: { en: "Bogie open wagon", hi: "बोगी ओपन वैगन" },
-            c: { en: "Bogie covered wagon fitted with air brakes", hi: "एयर ब्रेक लगे हुए बोगी कवरड वैगन" },
-            d: { en: "Hopper wagon", hi: "हॉप्पर वोगन" },
-            correct: "c"
+                    "question": {
+                                "en": "Q.15 When a Hot Axle is noticed during night, ___ signal is to be shown",
+                                "hi": "प्रश्न 15. रात के समय हॉट एक्सल देखने पर दिखाया जाने वाला संकेत क्या है?"
+                    },
+                    "a": {
+                                "en": "Proceed hand signal (green light)",
+                                "hi": "Proceed hand signal (green light)"
+                    },
+                    "b": {
+                                "en": "Stop hand signal (red light)",
+                                "hi": "Stop hand signal (red light)"
+                    },
+                    "c": {
+                                "en": "Shunt signal",
+                                "hi": "Shunt signal"
+                    },
+                    "d": {
+                                "en": "Caution light",
+                                "hi": "Caution light"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.16 BLCA/BLCB/BLLA/BLLB are used for what purpose?",
-                hi: "Q.16 BLCA/BLCB/BLLA/BLLB' किसके लिए उपयोग किए जाते हैं?"
-            },
-            a: { en: "Tank loading", hi: "टैंक लोडिंग" },
-            b: { en: "container Loading", hi: "कंटेनर लोडिंग" },
-            c: { en: "Coal Loading", hi: "कोयला लोडिंग" },
-            d: { en: "Steel Loading", hi: "स्टील लोडिंग" },
-            correct: "b"
+                    "question": {
+                                "en": "Q.16 Waving a white light as high as possible and low during night time by a gateman indicates",
+                                "hi": "प्रश्न 16. गेटमैन द्वारा रात के समय सफेद रोशनी को जितना संभव हो उतना ऊंचा और नीचे लहराना क्या दर्शाता है?"
+                    },
+                    "a": {
+                                "en": "Gate is open for road traffic",
+                                "hi": "Gate is open for road traffic"
+                    },
+                    "b": {
+                                "en": "All is right / Gate is closed for road traffic and clear for train",
+                                "hi": "All is right / Gate is closed for road traffic and clear for train"
+                    },
+                    "c": {
+                                "en": "Stop train immediately",
+                                "hi": "Stop train immediately"
+                    },
+                    "d": {
+                                "en": "Detonator placed on track",
+                                "hi": "Detonator placed on track"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.17 Which equipment provides 'data evidence' for investigation of 'Unusual incidences'?",
-                hi: "Q.17 असामान्य घटनाओं' (Unusual incidences) की जांच के लिए कौन सा उपकरण 'डेटा साक्ष्य' प्रदान करता है?"
-            },
-            a: { en: "Block Instrument", hi: "ब्लॉक इंस्ट्रूमेंट" },
-            b: { en: "Relay Rack", hi: "रिले रैक" },
-            c: { en: "Data Logger", hi: "डेटा लॉगर" },
-            d: { en: "Track Circuit", hi: "ट्रैक सर्किट" },
-            correct: "c"
+                    "question": {
+                                "en": "Q.17 Within Station Home signals, level crossing gates are manned by ___ staff",
+                                "hi": "प्रश्न 17. स्टेशन होम सिगनलों के भीतर, समपार फाटकों (Level Crossings) को किस कर्मचारी द्वारा संचालित किया जाता है?"
+                    },
+                    "a": {
+                                "en": "Engineering / P.Way staff",
+                                "hi": "Engineering / P.Way staff"
+                    },
+                    "b": {
+                                "en": "Station / Traffic staff (as specified in SWR)",
+                                "hi": "Station / Traffic staff (as specified in SWR)"
+                    },
+                    "c": {
+                                "en": "Signal & Telecom staff",
+                                "hi": "Signal & Telecom staff"
+                    },
+                    "d": {
+                                "en": "RPF staff",
+                                "hi": "RPF staff"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.18 Interlocking may be provided between which of the following?",
-                hi: "Q.18 इंटरलॉकिंग का संबंध किन-किन के बीच हो सकता है?"
-            },
-            a: { en: "Signal & points", hi: "सिग्नल और पॉइंट" },
-            b: { en: "Signal & gate", hi: "सिग्नल और गेट" },
-            c: { en: "Signal & block instrument", hi: "सिग्नल और ब्लॉक इंस्ट्रूमेंट" },
-            d: { en: "All of the above", hi: "उपरोक्त सभी" },
-            correct: "d"
+                    "question": {
+                                "en": "Q.18 What is the sound that comes from a flat tyre wagon",
+                                "hi": "प्रश्न 18. फ़्लैट टायर वाले वैगन से कैसी आवाज़ आती है?"
+                    },
+                    "a": {
+                                "en": "Continuous whistling sound",
+                                "hi": "Continuous whistling sound"
+                    },
+                    "b": {
+                                "en": "Rhythmic hammering / thudding / knocking sound (\"khat-khat\" / \"thud\") with every wheel rotation",
+                                "hi": "Rhythmic hammering / thudding / knocking sound (\"khat-khat\" / \"thud\") with every wheel rotation"
+                    },
+                    "c": {
+                                "en": "Hissing air sound only",
+                                "hi": "Hissing air sound only"
+                    },
+                    "d": {
+                                "en": "No sound at all",
+                                "hi": "No sound at all"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.19 For new works, what is the normal height of the contact wire at the support point?",
-                hi: "Q.19 नए कार्यों के लिए, सपोर्ट पॉइंट पर कॉन्टैक्ट वायर (संपर्क तार) की सामान्य ऊंचाई क्या होती है?"
-            },
-            a: { en: "5.50 m", hi: "5.50 m" },
-            b: { en: "5.55 m", hi: "5.55 m" },
-            c: { en: "5.60 m", hi: "5.60 m" },
-            d: { en: "5.75 m", hi: "5.75 m" },
-            correct: "c"
+                    "question": {
+                                "en": "Q.19 Whenever wagons are stabled, they shall be secured by pinning down at least ___ hand brakes at each end",
+                                "hi": "प्रश्न 19. जब भी वैगनों को स्थिर किया जाता है, तो उन्हें प्रत्येक छोर पर कम से कम कितने हैंड ब्रेक लगाकर सुरक्षित किया जाएगा?"
+                    },
+                    "a": {
+                                "en": "2 hand brakes",
+                                "hi": "2 hand brakes"
+                    },
+                    "b": {
+                                "en": "4 hand brakes",
+                                "hi": "4 hand brakes"
+                    },
+                    "c": {
+                                "en": "6 hand brakes",
+                                "hi": "6 hand brakes"
+                    },
+                    "d": {
+                                "en": "10 hand brakes",
+                                "hi": "10 hand brakes"
+                    },
+                    "correct": "c"
         },
         {
-            question: {
-                en: "Q.20 When a shunt signal is placed below a stop signal, what does it display in the 'ON' position?",
-                hi: "Q.20 जब शंट सिग्नल किसी स्टॉप सिग्नल के नीचे लगाया जाता है, तो 'ON' स्थिति में यह क्या दिखाता है?"
-            },
-            a: { en: "No light", hi: "कोई प्रकाश नहीं" },
-            b: { en: "White light", hi: "सफेद बत्ती" },
-            c: { en: "Green light", hi: "हरी बत्ती" },
-            d: { en: "Red light", hi: "लाल बत्ती" },
-            correct: "a"
+                    "question": {
+                                "en": "Q.20 ___ signal has no red signal",
+                                "hi": "प्रश्न 20. किस सिग्नल में लाल रोशनी (Red signal) नहीं होती है?"
+                    },
+                    "a": {
+                                "en": "Home signal",
+                                "hi": "Home signal"
+                    },
+                    "b": {
+                                "en": "Starter signal",
+                                "hi": "Starter signal"
+                    },
+                    "c": {
+                                "en": "Distant signal",
+                                "hi": "Distant signal"
+                    },
+                    "d": {
+                                "en": "Gate Stop signal",
+                                "hi": "Gate Stop signal"
+                    },
+                    "correct": "c"
         },
         {
-            question: {
-                en: "Q.21 What is the permissible flatness limit for Goods Stock?",
-                hi: "Q.21 माल गाड़ियों के लिए अनुमत फ्लैटनेस सीमा कितनी है?"
-            },
-            a: { en: "40 mm", hi: "40 mm" },
-            b: { en: "50 mm", hi: "50 mm" },
-            c: { en: "60 mm", hi: "60 mm" },
-            d: { en: "70 mm", hi: "70 mm" },
-            correct: "c"
+                    "question": {
+                                "en": "Q.21 If the Home signal shows a green light, then the Distant signal shows ___",
+                                "hi": "प्रश्न 21. अगर होम सिग्नल हरी बत्ती दिखाता है, तो डिस्टेंट सिग्नल क्या दिखाता है?"
+                    },
+                    "a": {
+                                "en": "Double yellow light",
+                                "hi": "Double yellow light"
+                    },
+                    "b": {
+                                "en": "Single yellow light",
+                                "hi": "Single yellow light"
+                    },
+                    "c": {
+                                "en": "Green light",
+                                "hi": "Green light"
+                    },
+                    "d": {
+                                "en": "Red light",
+                                "hi": "Red light"
+                    },
+                    "correct": "c"
         },
         {
-            question: {
-                en: "Q.22 If both Starter and Advanced Starter are defective, how many authorities are issued?",
-                hi: "Q.22 यदि स्टार्टर और एडवांस्ड स्टार्टर दोनों खराब हों, तो कितने प्राधिकरण जारी किए जाते हैं?"
-            },
-            a: { en: "Two separate T/369(3b)", hi: "दो अलग-अलग T/369(3b)" },
-            b: { en: "A single T/369(3b)", hi: "एक ही T/369(3b)" },
-            c: { en: "Two separate T/409", hi: "दो अलग-अलग T/409" },
-            d: { en: "T/369(3b) for starter and T/409 for advance starter", hi: "स्टार्टर के लिए T/369 (3b) और एडवांस स्टार्टर के लिए T/409" },
-            correct: "b"
+                    "question": {
+                                "en": "Q.22 If the Distant signal shows a double yellow light, then the Home signal shows ___",
+                                "hi": "प्रश्न 22. यदि डिस्टेंट सिग्नल दोहरी पीली रोशनी दिखाता है, तो होम सिग्नल क्या दिखाता है?"
+                    },
+                    "a": {
+                                "en": "Green light",
+                                "hi": "Green light"
+                    },
+                    "b": {
+                                "en": "Yellow / Caution aspect (prepared to stop / reception on loop or restricted line)",
+                                "hi": "Yellow / Caution aspect (prepared to stop / reception on loop or restricted line)"
+                    },
+                    "c": {
+                                "en": "No light",
+                                "hi": "No light"
+                    },
+                    "d": {
+                                "en": "Calling-on aspect",
+                                "hi": "Calling-on aspect"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.23 How many Private Numbers does SM exchange in case of failure of IB stop signal ?",
-                hi: "Q.23 IB स्टॉप सिग्नल डिफेक्टिव होने की स्थिति में SM कितने प्राइवेट नंबरों का आदान-प्रदान करता है?"
-            },
-            a: { en: "Only one Line Clear", hi: "केवल एक - लाइन क्लियर" },
-            b: { en: "Only one Section Clear", hi: "केवल एक - सेक्शन क्लियर" },
-            c: { en: "Two one Section Clear and one Line Clear", hi: "दो - एक सेक्शन क्लियर और दूसरा लाइन क्लियर" },
-            d: { en: "No Private Number required", hi: "कोई भी प्राइवेट नंबर आवश्यक नहीं" },
-            correct: "c"
+                    "question": {
+                                "en": "Q.23 If the Distant signal shows a single yellow light, then the Home signal shows ___",
+                                "hi": "प्रश्न 23. यदि डिस्टेंट सिग्नल एक पीली रोशनी दिखाता है, तो होम सिग्नल क्या दिखाता है?"
+                    },
+                    "a": {
+                                "en": "Green light",
+                                "hi": "Green light"
+                    },
+                    "b": {
+                                "en": "Stop / 'ON' aspect (or caution/stop depending on territory rules)",
+                                "hi": "Stop / 'ON' aspect (or caution/stop depending on territory rules)"
+                    },
+                    "c": {
+                                "en": "Proceed at maximum speed",
+                                "hi": "Proceed at maximum speed"
+                    },
+                    "d": {
+                                "en": "Shunt aspect",
+                                "hi": "Shunt aspect"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.24 In which register shall the Station Master (SM) record details of all Signal related failures?",
-                hi: "Q.24 स्टेशन मास्टर (SM) सिग्नल से सम्बंधित सभी विफलताओं का विवरण किस रजिस्टर में दर्ज करेगा?"
-            },
-            a: { en: "SI-24", hi: "SI-24" },
-            b: { en: "SI-4", hi: "SI-4" },
-            c: { en: "TSR", hi: "TSR" },
-            d: { en: "no recording is necessary", hi: "कोई रिकॉर्डिंग आवश्यक नहीं है" },
-            correct: "a"
+                    "question": {
+                                "en": "Q.24 BOBYN wagon is",
+                                "hi": "प्रश्न 24. BOBYN किस प्रकार का वैगन है?"
+                    },
+                    "a": {
+                                "en": "Covered wagon for food grains",
+                                "hi": "Covered wagon for food grains"
+                    },
+                    "b": {
+                                "en": "Bogie Open Bottom Discharge wagon (commonly used for ballast)",
+                                "hi": "Bogie Open Bottom Discharge wagon (commonly used for ballast)"
+                    },
+                    "c": {
+                                "en": "Flat wagon for rails",
+                                "hi": "Flat wagon for rails"
+                    },
+                    "d": {
+                                "en": "Tank wagon for petroleum",
+                                "hi": "Tank wagon for petroleum"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.25 What is the code for 'Cancel Last Signal' or 'Signal given in error'?",
-                hi: "Q.25 'पिछला सिग्नल रद्द करें' (Cancel Last Signal) या 'सिग्नल गलती से दिया गया' (Signal given in error) के लिए कोड क्या है?"
-            },
-            a: { en: "2 beats", hi: "2 घंटियाँ" },
-            b: { en: "3 beats", hi: "3 घंटियाँ" },
-            c: { en: "4 beats", hi: "4 घंटियाँ" },
-            d: { en: "5 beats", hi: "5 घंटियाँ" },
-            correct: "d"
+                    "question": {
+                                "en": "Q.25 What is the colour of the Brake Pipe",
+                                "hi": "प्रश्न 25. ब्रेक पाइप का रंग क्या है?"
+                    },
+                    "a": {
+                                "en": "Red",
+                                "hi": "Red"
+                    },
+                    "b": {
+                                "en": "Yellow",
+                                "hi": "Yellow"
+                    },
+                    "c": {
+                                "en": "Green",
+                                "hi": "Green"
+                    },
+                    "d": {
+                                "en": "Blue",
+                                "hi": "Blue"
+                    },
+                    "correct": "c"
         },
         {
-            question: {
-                en: "Q.26 In what condition should the operating handle of an isolator switch always be kept?",
-                hi: "Q.26 आइसोलेटर स्विच का ऑपरेटिंग हैंडल हमेशा किस स्थिति में रखा जाना चाहिए?"
-            },
-            a: { en: "Open", hi: "खुला" },
-            b: { en: "Closed", hi: "बंद" },
-            c: { en: "Half open", hi: "आधा खुला" },
-            d: { en: "Locked", hi: "लॉक (ताला लगा हुआ)" },
-            correct: "d"
+                    "question": {
+                                "en": "Q.26 Normally points are set to ___ line",
+                                "hi": "प्रश्न 26. सामान्यतः पॉइंट्स किस लाइन पर सेट रहते हैं?"
+                    },
+                    "a": {
+                                "en": "Loop line",
+                                "hi": "Loop line"
+                    },
+                    "b": {
+                                "en": "Main line",
+                                "hi": "Main line"
+                    },
+                    "c": {
+                                "en": "Siding line",
+                                "hi": "Siding line"
+                    },
+                    "d": {
+                                "en": "Dead-end line",
+                                "hi": "Dead-end line"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.27 Which part of the Constitution deals with the official language?",
-                hi: "Q.27 संविधान का कौन-सा भाग राजभाषा से संबंधित है?"
-            },
-            a: { en: "Part XVI", hi: "भाग XVI" },
-            b: { en: "Part XVII", hi: "भाग XVII" },
-            c: { en: "Part XVIII", hi: "भाग XVIII" },
-            d: { en: "Part XIV", hi: "भाग XIV" },
-            correct: "b"
+                    "question": {
+                                "en": "Q.27 Authority shall be issued during Starter signal failure",
+                                "hi": "प्रश्न 27. स्टार्टर सिग्नल की विफलता के दौरान कौन-सा प्राधिकार/फॉर्म जारी किया जाएगा?"
+                    },
+                    "a": {
+                                "en": "Form T/512 (written authority to pass Starter signal at 'ON')",
+                                "hi": "Form T/512 (written authority to pass Starter signal at 'ON')"
+                    },
+                    "b": {
+                                "en": "Form T/509",
+                                "hi": "Form T/509"
+                    },
+                    "c": {
+                                "en": "Form T/C 1425",
+                                "hi": "Form T/C 1425"
+                    },
+                    "d": {
+                                "en": "Form T/806",
+                                "hi": "Form T/806"
+                    },
+                    "correct": "a"
         },
         {
-            question: {
-                en: "Q.28 When DLBI/UFSBI fails, which Authority to Proceed will be used?",
-                hi: "Q.28 जब DLBI/UFSBI विफल हो जाता है, उस स्थिति में कौन-सा प्रस्थान प्राधिकार प्रयोग किया जाएगा?"
-            },
-            a: { en: "T/369(3b)", hi: "T/369(3b)" },
-            b: { en: "T/369(3b)+Private number", hi: "T/369(3b)+Private number/प्राइवेट नंबर" },
-            c: { en: "T/511", hi: "T/511" },
-            d: { en: "T/512", hi: "T/512" },
-            correct: "b"
+                    "question": {
+                                "en": "Q.28 Calling-on signal is a",
+                                "hi": "प्रश्न 28. कॉलिंग-ऑन सिग्नल किस प्रकार का सिग्नल है?"
+                    },
+                    "a": {
+                                "en": "Main stop signal",
+                                "hi": "Main stop signal"
+                    },
+                    "b": {
+                                "en": "Subsidiary signal",
+                                "hi": "Subsidiary signal"
+                    },
+                    "c": {
+                                "en": "Distant signal",
+                                "hi": "Distant signal"
+                    },
+                    "d": {
+                                "en": "Repeating signal",
+                                "hi": "Repeating signal"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.29 What exemption is provided for cabins of large yards with shunting activities?",
-                hi: "Q.29 बड़े यार्ड में शंटिंग गतिविधियों वाले कैबिन्स के लिए क्या छूट दी गई है?"
-            },
-            a: { en: "exchanging All Right Signal is not necessary", hi: "ऑल राइट सिग्नल का आदान-प्रदान आवश्यक नहीं है" },
-            b: { en: "exchanging All Right Signal is necessary", hi: "ऑल राइट सिग्नल का आदान-प्रदान आवश्यक है" },
-            c: { en: "exchanging All Right Signal is not necessary but must watch the train", hi: "ऑल राइट सिग्नल का आदान-प्रदान आवश्यक नहीं है लेकिन ट्रेन पर नजर रखनी है" },
-            d: { en: "Merely placing flag/lamp in view", hi: "सिर्फ झंडा/लैम्प नजर में रखना" },
-            correct: "c"
+                    "question": {
+                                "en": "Q.29 Line Clear Ticket form number is",
+                                "hi": "प्रश्न 29. लाइन क्लियर टिकट फॉर्म नंबर क्या है?"
+                    },
+                    "a": {
+                                "en": "Form T/806",
+                                "hi": "Form T/806"
+                    },
+                    "b": {
+                                "en": "Form T/512",
+                                "hi": "Form T/512"
+                    },
+                    "c": {
+                                "en": "Form T/C 1425 / T/D 1425",
+                                "hi": "Form T/C 1425 / T/D 1425"
+                    },
+                    "d": {
+                                "en": "Form T/509",
+                                "hi": "Form T/509"
+                    },
+                    "correct": "c"
         },
         {
-            question: {
-                en: "Q.30 If a zonal railway needs to frame rules as per local conditions, which rules will it issue and by whom are they framed?",
-                hi: "Q.30 यदि किसी ज़ोनल रेलवे को स्थानीय परिस्थितियों के अनुसार नियम बनाने हों, तो उसे कौन-से नियम बनाने होंगे, और वे किस प्राधिकारी द्वारा बनाए जाते हैं?"
-            },
-            a: { en: "GR - By Railway Board", hi: "GR - रेलवे बोर्ड द्वारा" },
-            b: { en: "SR- By PCOM", hi: "SR- पी.सी.०.एम द्वारा" },
-            c: { en: "Approved Special Instructions - By CRS", hi: "विशेष अनुमोदित निर्देश- सी.आर.एस. द्वारा" },
-            d: { en: "Special Instructions - By Railway Board", hi: "विशेष निर्देश - रेलवे बोर्ड द्वारा" },
-            correct: "b"
+                    "question": {
+                                "en": "Q.30 What should not be done after a trail through",
+                                "hi": "प्रश्न 30. ट्रेल थ्रू (trail through) होने के बाद क्या नहीं करना चाहिए?"
+                    },
+                    "a": {
+                                "en": "Report to Station Master and S&T/P.Way staff",
+                                "hi": "Report to Station Master and S&T/P.Way staff"
+                    },
+                    "b": {
+                                "en": "Force/operate the trailed point or pass a train over it without examination and setting/clamping/locking as per rules",
+                                "hi": "Force/operate the trailed point or pass a train over it without examination and setting/clamping/locking as per rules"
+                    },
+                    "c": {
+                                "en": "Protect the line if unsafe",
+                                "hi": "Protect the line if unsafe"
+                    },
+                    "d": {
+                                "en": "Record the occurrence",
+                                "hi": "Record the occurrence"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.31 For how long is the BPC of a Dedicated Parcel Train valid?",
-                hi: "Q.31 समर्पित पार्सल ट्रेन (Dedicated Parcel Train) का BPC कितने समय के लिए वैध होता है?"
-            },
-            a: { en: "7 days", hi: "7 दिन" },
-            b: { en: "10 days", hi: "10 दिन" },
-            c: { en: "12 days", hi: "12 दिन" },
-            d: { en: "15 days", hi: "15 दिन" },
-            correct: "b"
+                    "question": {
+                                "en": "Q.31 Air continuity test is conducted by ___ & ___",
+                                "hi": "प्रश्न 31. वायु निरंतरता परीक्षण (Air continuity test) किसके द्वारा किया जाता है?"
+                    },
+                    "a": {
+                                "en": "Station Master & Pointsman",
+                                "hi": "Station Master & Pointsman"
+                    },
+                    "b": {
+                                "en": "Loco Pilot & Guard (Train Manager)",
+                                "hi": "Loco Pilot & Guard (Train Manager)"
+                    },
+                    "c": {
+                                "en": "JE (Signal) & JE (P.Way)",
+                                "hi": "JE (Signal) & JE (P.Way)"
+                    },
+                    "d": {
+                                "en": "Yard Master & Cabinman",
+                                "hi": "Yard Master & Cabinman"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.32 If an engine is attached at the rear, who ensures the brake continuity check?",
-                hi: "Q.32 अगर ट्रेन के पीछे इंजन जुड़ा हो तो ब्रेक कंटिन्यूटी चेक कौन करता है?"
-            },
-            a: { en: "Guard", hi: "गार्ड" },
-            b: { en: "Station Master", hi: "स्टेशन मास्टर" },
-            c: { en: "Conductor", hi: "कंडक्टर" },
-            d: { en: "Loco Pilot of rear engine", hi: "लोको पायलट ऑफ रियर इंजन" },
-            correct: "d"
+                    "question": {
+                                "en": "Q.32 Permanent speed restrictions are notified through",
+                                "hi": "प्रश्न 32. स्थायी गति प्रतिबंध (Permanent Speed Restrictions) किसके द्वारा अधिसूचित किए जाते हैं?"
+                    },
+                    "a": {
+                                "en": "Caution Order",
+                                "hi": "Caution Order"
+                    },
+                    "b": {
+                                "en": "Working Time Table (WTT) / Permanent Way diagrams / SWR",
+                                "hi": "Working Time Table (WTT) / Permanent Way diagrams / SWR"
+                    },
+                    "c": {
+                                "en": "Shunting Order",
+                                "hi": "Shunting Order"
+                    },
+                    "d": {
+                                "en": "Line Clear Ticket",
+                                "hi": "Line Clear Ticket"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.33 Consider statements regarding objectives of IRPSM:\n1. Online creation of 'New Works' proposals.\n2. Replacing existing manual system.\n3. Managing staff salary.\nWhich among the above is/are correct:",
-                hi: "Q.33 IRPSM के उद्देश्यों के संबंध में निम्नलिखित कथनों पर विचार करें:\n1. 'नए कार्यों' के प्रस्तावों का ऑनलाइन निर्माण ।\n2. मौजूदा मैनुअल सिस्टम को बदलना ।\n3. कर्मचारियों के वेतन का प्रबंधन करना।\nउपरोक्त में से कौन सा/से सही है:"
-            },
-            a: { en: "Only 1 and 2 are correct", hi: "केवल 1 और 2 सही हैं" },
-            b: { en: "Only 2 and 3 are correct", hi: "केवल 2 और 3 सही हैं" },
-            c: { en: "Only 1 and 3 are correct", hi: "केवल 1 और 3 सही हैं" },
-            d: { en: "All 1, 2 and 3 are correct", hi: "1, 2 और 3 सभी सही हैं" },
-            correct: "a"
+                    "question": {
+                                "en": "Q.33 During failure of a shunt signal, the authority issued is",
+                                "hi": "प्रश्न 33. शंट सिग्नल की विफलता के दौरान जारी किया जाने वाला प्राधिकार क्या है?"
+                    },
+                    "a": {
+                                "en": "Written authority / shunting instruction as per G&SR / SWR (e.g., Form T/806 / hand signals as prescribed)",
+                                "hi": "Written authority / shunting instruction as per G&SR / SWR (e.g., Form T/806 / hand signals as prescribed)"
+                    },
+                    "b": {
+                                "en": "Line Clear Ticket",
+                                "hi": "Line Clear Ticket"
+                    },
+                    "c": {
+                                "en": "Caution Order only",
+                                "hi": "Caution Order only"
+                    },
+                    "d": {
+                                "en": "Authority for single-line working",
+                                "hi": "Authority for single-line working"
+                    },
+                    "correct": "a"
         },
         {
-            question: {
-                en: "Q.34 What is the most important condition before resetting BPAC?",
-                hi: "Q.34 बीपीएसी (BPAC) को रीसेट करने से पहले सबसे महत्वपूर्ण शर्त क्या है?"
-            },
-            a: { en: "Taking Traffic Block", hi: "ट्रैफिक ब्लॉक लेना" },
-            b: { en: "Calling S&T staff", hi: "एस एंड टी स्टाफ को बुलाना" },
-            c: { en: "Opening Relay Room", hi: "रिले रूम खोलना" },
-            d: { en: "Verifying that preceding train has arrived complete", hi: "यह सत्यापित करना कि पिछली ट्रेन पूरी आ गई है" },
-            correct: "d"
+                    "question": {
+                                "en": "Q.34 ___ corrections are permitted to the SWR of a station",
+                                "hi": "प्रश्न 34. किसी स्टेशन के SWR में कितने संशोधनों/सुधारों की अनुमति है?"
+                    },
+                    "a": {
+                                "en": "Unlimited corrections",
+                                "hi": "Unlimited corrections"
+                    },
+                    "b": {
+                                "en": "Up to 5 correction memos (fresh SWR issued if a 6th is needed)",
+                                "hi": "Up to 5 correction memos (fresh SWR issued if a 6th is needed)"
+                    },
+                    "c": {
+                                "en": "Maximum 2 corrections",
+                                "hi": "Maximum 2 corrections"
+                    },
+                    "d": {
+                                "en": "Maximum 10 corrections",
+                                "hi": "Maximum 10 corrections"
+                    },
+                    "correct": "b"
         },
         {
-            question: {
-                en: "Q.35 What is the main purpose of isolation?",
-                hi: "Q.35 आइसोलेशन का मुख्य उद्देश्य क्या है?"
-            },
-            a: { en: "To safely separate one line from another", hi: "एक line को दूसरी line से सुरक्षित रूप से अलग करना" },
-            b: { en: "Connecting loop line to main line", hi: "मुख्य लाइन से लूप लाइन को जोड़ना" },
-            c: { en: "To store vehicles in yard", hi: "यार्ड में गाड़ियों को स्टोर करना" },
-            d: { en: "Issuing caution order", hi: "कौसन आर्डर जारी करना" },
-            correct: "a"
+                    "question": {
+                                "en": "Q.35 Staff must give an SWR declaration after absence/leave of ___ days",
+                                "hi": "प्रश्न 35. कितने दिनों की छुट्टी या अनुपस्थिति के बाद कर्मचारियों को SWR घोषणा/डिक्लेरेशन देना होता है?"
+                    },
+                    "a": {
+                                "en": "7 days",
+                                "hi": "7 days"
+                    },
+                    "b": {
+                                "en": "10 days",
+                                "hi": "10 days"
+                    },
+                    "c": {
+                                "en": "15 consecutive days or more",
+                                "hi": "15 consecutive days or more"
+                    },
+                    "d": {
+                                "en": "30 days",
+                                "hi": "30 days"
+                    },
+                    "correct": "c"
         },
         {
-            question: {
-                en: "Q.36 What is the bell code for \"Train Entering Block Section\" (TES)?",
-                hi: "Q.36 \"ब्लॉक सेक्शन में प्रवेश करने वाली ट्रेन\" (TES) के लिए बेल कोड क्या है?"
-            },
-            a: { en: "000", hi: "000" },
-            b: { en: "0000", hi: "0000" },
-            c: { en: "O", hi: "O" },
-            d: { en: "000000", hi: "000000" },
-            correct: "a"
+                    "question": {
+                                "en": "Q.36 What is the pressure to be maintained in the Brake Pipe",
+                                "hi": "प्रश्न 36. ब्रेक पाइप में कितना दबाव (pressure) बनाए रखना होता है?"
+                    },
+                    "a": {
+                                "en": "3.5 kg/cm²",
+                                "hi": "3.5 kg/cm²"
+                    },
+                    "b": {
+                                "en": "5.0 kg/cm² (in loco / standard air brake working)",
+                                "hi": "5.0 kg/cm² (in loco / standard air brake working)"
+                    },
+                    "c": {
+                                "en": "6.0 kg/cm²",
+                                "hi": "6.0 kg/cm²"
+                    },
+                    "d": {
+                                "en": "8.0 kg/cm²",
+                                "hi": "8.0 kg/cm²"
+                    },
+                    "correct": "b"
+        },
+        {
+                    "question": {
+                                "en": "Q.37 Normal aspect of a Shunt signal placed below a stop signal",
+                                "hi": "प्रश्न 37. किसी स्टॉप सिग्नल के नीचे लगाए गए शंट सिग्नल का सामान्य आस्पेक्ट क्या होता है?"
+                    },
+                    "a": {
+                                "en": "Two white lights",
+                                "hi": "Two white lights"
+                    },
+                    "b": {
+                                "en": "Two red lights",
+                                "hi": "Two red lights"
+                    },
+                    "c": {
+                                "en": "No light in 'ON' position",
+                                "hi": "No light in 'ON' position"
+                    },
+                    "d": {
+                                "en": "Single yellow light",
+                                "hi": "Single yellow light"
+                    },
+                    "correct": "c"
+        },
+        {
+                    "question": {
+                                "en": "Q.38 What is the sequence of securing a load at a station",
+                                "hi": "प्रश्न 38. स्टेशन पर लोड को सिक्योर करने का क्रम क्या है?"
+                    },
+                    "a": {
+                                "en": "Couple/hand brakes → wedges/skids → safety chains & padlocks → set/clamp/lock points against blocked line",
+                                "hi": "Couple/hand brakes → wedges/skids → safety chains & padlocks → set/clamp/lock points against blocked line"
+                    },
+                    "b": {
+                                "en": "Release hand brakes → remove chains → open angle cocks",
+                                "hi": "Release hand brakes → remove chains → open angle cocks"
+                    },
+                    "c": {
+                                "en": "Remove wedges → uncouple wagons → set points to main line",
+                                "hi": "Remove wedges → uncouple wagons → set points to main line"
+                    },
+                    "d": {
+                                "en": "No specific sequence is required",
+                                "hi": "No specific sequence is required"
+                    },
+                    "correct": "a"
+        },
+        {
+                    "question": {
+                                "en": "Q.39 When more than one shunt signal is provided on the same post, to which line will the topmost shunt signal apply?",
+                                "hi": "प्रश्न 39. जब एक ही पोस्ट पर एक से अधिक शंट सिग्नल लगाए जाते हैं, तो सबसे ऊपर वाला शंट सिग्नल किस लाइन पर लागू होगा?"
+                    },
+                    "a": {
+                                "en": "Extreme right line",
+                                "hi": "Extreme right line"
+                    },
+                    "b": {
+                                "en": "Extreme left line",
+                                "hi": "Extreme left line"
+                    },
+                    "c": {
+                                "en": "Furthest line from the post (or as specified in SWR/signalling rules)",
+                                "hi": "Furthest line from the post (or as specified in SWR/signalling rules)"
+                    },
+                    "d": {
+                                "en": "Middle line only",
+                                "hi": "Middle line only"
+                    },
+                    "correct": "c"
+        },
+        {
+                    "question": {
+                                "en": "Q.40 At night, when a red light is not available, which light can be used solely as a 'Stop signal'?",
+                                "hi": "प्रश्न 40. रात के समय, जब लाल बत्ती उपलब्ध न हो, तो किस बत्ती का इस्तेमाल सिर्फ़ 'स्टॉप सिग्नल' के तौर पर किया जा सकता है?"
+                    },
+                    "a": {
+                                "en": "Green light",
+                                "hi": "Green light"
+                    },
+                    "b": {
+                                "en": "White light (waved violently and horizontally across the body)",
+                                "hi": "White light (waved violently and horizontally across the body)"
+                    },
+                    "c": {
+                                "en": "Blue light",
+                                "hi": "Blue light"
+                    },
+                    "d": {
+                                "en": "Amber light",
+                                "hi": "Amber light"
+                    },
+                    "correct": "b"
         }
     ];
 
