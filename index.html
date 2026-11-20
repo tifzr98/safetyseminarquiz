@@ -25,7 +25,7 @@
             text-align: center;
             position: relative;
         }
-        
+
         /* Language Selector Styling */
         .lang-container {
             position: absolute;
@@ -268,11 +268,11 @@
 <body>
 
 <div class="quiz-container">
-    
+
     <div class="lang-container" id="lang-switcher">
         <button class="lang-btn active" id="lang-en-btn" onclick="switchLanguage('en')">English</button><button class="lang-btn" id="lang-hi-btn" onclick="switchLanguage('hi')">हिंदी</button>
     </div>
-    
+
     <div id="start-page">
         <img class="railway-logo" src="https://upload.wikimedia.org/wikipedia/en/b/be/Indian_Railways.png" alt="Indian Railways Logo">
         <h1 id="main-title">Safety Quiz Competition 2026-27</h1>
@@ -284,8 +284,8 @@
     <div id="reg-page" class="hidden">
         <img class="railway-logo" src="https://upload.wikimedia.org/wikipedia/en/b/be/Indian_Railways.png" alt="Indian Railways Logo">
         <h2 id="reg-title">Staff Registration</h2>
-        <div class="division-text" id="reg-sub">All fields are mandatory to start the 30-min exam</div>
-        
+        <div class="division-text" id="reg-sub">All fields are mandatory to start the 20-min exam</div>
+
         <form id="quiz-form">
             <div class="form-group">
                 <label id="lbl-name" for="staff-name">Name of Staff *</label>
@@ -299,14 +299,14 @@
                 <label id="lbl-station" for="staff-station">Station of Staff *</label>
                 <input type="text" id="staff-station" required>
             </div>
-            <button type="submit" class="action-btn" id="reg-submit-btn">Start 30-Minute Quiz</button>
+            <button type="submit" class="action-btn" id="reg-submit-btn">Start 20-Minute Quiz</button>
         </form>
     </div>
 
     <div id="quiz-page" class="hidden">
         <div class="header">
             <h3 id="exam-terminal-title">Safety Quiz 2026-27</h3>
-            <div class="timer" id="timer">Time Left: 30:00</div>
+            <div class="timer" id="timer">Time Left: 20:00</div>
         </div>
         <div class="question" id="question">Loading question...</div>
         <ul class="options" id="options"></ul>
@@ -338,10 +338,10 @@
         <img class="railway-logo" src="https://upload.wikimedia.org/wikipedia/en/b/be/Indian_Railways.png" alt="Indian Railways Logo">
         <h2>Master Records Dashboard</h2>
         <div class="division-text">Safety Quiz Competition 2026-27 Results</div>
-        
+
         <button class="action-btn" id="download-master-btn" style="background-color: #28a745; margin-bottom: 10px;">Download Master Excel (CSV)</button>
         <button class="action-btn" id="clear-records-btn" style="background-color: #dc3545; margin-bottom: 10px;">Clear All Records</button>
-        
+
         <div class="table-responsive">
             <table>
                 <thead>
@@ -357,7 +357,7 @@
                 <tbody id="admin-table-body"></tbody>
             </table>
         </div>
-        
+
         <button class="action-btn" id="exit-admin-btn" style="background-color: #6c757d;">Log Out Dashboard</button>
     </div>
 
@@ -365,7 +365,7 @@
 
 <script>
     let currentLang = 'en';
-    
+
     const uiLabels = {
         en: {
             mainTitle: "Safety Quiz Competition 2026-27",
@@ -373,14 +373,14 @@
             startBtn: "Proceed to Registration",
             adminBtn: "Admin Dashboard (Password Protected)",
             regTitle: "Staff Registration",
-            regSub: "All fields are mandatory to start the 30-min exam",
+            regSub: "All fields are mandatory to start the 20-min exam",
             lblName: "Name of Staff *",
             lblDesig: "Designation of Staff *",
             lblStation: "Station of Staff *",
             phName: "Enter full name",
             phDesig: "e.g. PM-A, SM, TI, Guard",
             phStation: "Enter Station Code (e.g., FZR, LDH, JUC)",
-            regSubmit: "Start 30-Minute Quiz",
+            regSubmit: "Start 20-Minute Quiz",
             examTitle: "Safety Quiz 2026-27",
             timeLeft: "Time Left",
             nextBtn: "Next Question",
@@ -407,14 +407,14 @@
             startBtn: "पंजीकरण के लिए आगे बढ़ें",
             adminBtn: "एडमिन डैशबोर्ड (पासवर्ड सुरक्षित)",
             regTitle: "कर्मचारी पंजीकरण",
-            regSub: "30 मिनट की परीक्षा शुरू करने के लिए सभी फ़ील्ड अनिवार्य हैं",
+            regSub: "20 मिनट की परीक्षा शुरू करने के लिए सभी फ़ील्ड अनिवार्य हैं",
             lblName: "कर्मचारी का नाम *",
             lblDesig: "कर्मचारी का पदनाम *",
             lblStation: "कर्मचारी का स्टेशन *",
             phName: "पूरा नाम दर्ज करें",
             phDesig: "जैसे: PM-A, SM, TI, Guard",
             phStation: "स्टेशन कोड दर्ज करें (जैसे: FZR, LDH, JUC)",
-            regSubmit: "30 मिनट की प्रश्नोत्तरी शुरू करें",
+            regSubmit: "20 मिनट की प्रश्नोत्तरी शुरू करें",
             examTitle: "सुरक्षा प्रश्नोत्तरी 2026-27",
             timeLeft: "शेष समय",
             nextBtn: "अगला प्रश्न",
@@ -1362,7 +1362,7 @@
 
     let currentQuiz = 0;
     let score = 0;
-    let totalSecondsLeft = 30 * 60; 
+    let totalSecondsLeft = 20 * 60; 
     let examTimerInterval;
     let pDetails = { name: "", designation: "", station: "" };
     let isExamSubmitted = false;
@@ -1381,7 +1381,7 @@
         quizPage = document.getElementById('quiz-page');
         endPage = document.getElementById('end-page');
         adminPage = document.getElementById('admin-page');
-        
+
         quizForm = document.getElementById('quiz-form');
         questionEl = document.getElementById('question');
         optionsContainer = document.getElementById('options');
@@ -1421,10 +1421,10 @@
             pDetails.name = document.getElementById('staff-name').value.trim();
             pDetails.designation = document.getElementById('staff-desig').value.trim();
             pDetails.station = document.getElementById('staff-station').value.trim();
-            
+
             regPage.classList.add('hidden');
             quizPage.classList.remove('hidden');
-            
+
             answers = new Array(quizData.length).fill(null);
             currentQuiz = 0;
             score = 0;
@@ -1435,13 +1435,13 @@
 
         nextBtn.addEventListener('click', nextQuestion);
         previousBtn.addEventListener('click', previousQuestion);
-        
+
         document.getElementById('finish-btn').addEventListener('click', function() {
             resetQuizStateToHome();
         });
 
         document.getElementById('download-master-btn').addEventListener('click', downloadMasterCSV);
-        
+
         document.getElementById('clear-records-btn').addEventListener('click', function() {
             if(confirm("Are you absolutely sure you want to permanently delete all recorded staff results?")) {
                 localStorage.removeItem('railway_quiz_results');
@@ -1454,9 +1454,9 @@
         currentLang = lang;
         document.getElementById('lang-en-btn').classList.toggle('active', lang === 'en');
         document.getElementById('lang-hi-btn').classList.toggle('active', lang === 'hi');
-        
+
         applyLanguageStrings();
-        
+
         if (quizPage && !quizPage.classList.contains('hidden')) {
             updateQuizLanguageOnly();
         }
@@ -1464,23 +1464,23 @@
 
     function applyLanguageStrings() {
         const labels = uiLabels[currentLang];
-        
+
         document.getElementById('main-title').innerText = labels.mainTitle;
         document.getElementById('main-sub').innerText = labels.mainSub;
         document.getElementById('start-btn').innerText = labels.startBtn;
         document.getElementById('go-admin-btn').innerText = labels.adminBtn;
-        
+
         document.getElementById('reg-title').innerText = labels.regTitle;
         document.getElementById('reg-sub').innerText = labels.regSub;
         document.getElementById('lbl-name').innerText = labels.lblName;
         document.getElementById('lbl-desig').innerText = labels.lblDesig;
         document.getElementById('lbl-station').innerText = labels.lblStation;
-        
+
         document.getElementById('staff-name').placeholder = labels.phName;
         document.getElementById('staff-desig').placeholder = labels.phDesig;
         document.getElementById('staff-station').placeholder = labels.phStation;
         document.getElementById('reg-submit-btn').innerText = labels.regSubmit;
-        
+
         document.getElementById('exam-terminal-title').innerText = labels.examTitle;
         nextBtn.innerText = currentQuiz === quizData.length - 1 ? labels.submitBtn : labels.nextBtn;
         nextBtn.classList.toggle('submit-btn', currentQuiz === quizData.length - 1);
@@ -1495,7 +1495,7 @@
         document.getElementById('thank-you-title').innerText = labels.thankYou;
         document.getElementById('end-sub').innerText = labels.mainSub;
         document.getElementById('finish-btn').innerText = labels.finishBtn;
-        
+
         if (isExamSubmitted) {
             renderFinalScoreSummary();
         }
@@ -1503,11 +1503,11 @@
 
     function startGlobalExamTimer() {
         updateTimerDisplay();
-        
+
         examTimerInterval = setInterval(() => {
             totalSecondsLeft--;
             updateTimerDisplay();
-            
+
             if (totalSecondsLeft <= 0) {
                 clearInterval(examTimerInterval);
                 submissionStatus = "Timeout Auto-Submit";
@@ -1638,7 +1638,7 @@
     function saveAndShowResults() {
         if (isExamSubmitted) return; 
         isExamSubmitted = true;
-        
+
         clearInterval(examTimerInterval);
 
         // Calculate from the saved answer array so revisiting questions never double-counts.
@@ -1663,14 +1663,14 @@
 
         quizPage.classList.add('hidden');
         endPage.classList.remove('hidden');
-        
+
         renderFinalScoreSummary();
     }
 
     function renderFinalScoreSummary() {
         const labels = uiLabels[currentLang];
         let messageHeader = submissionStatus === "Completed" ? labels.msgCompleted : labels.msgTimeout;
-        
+
         scoreSummaryEl.innerHTML = `
             ${messageHeader}, <strong>${pDetails.name}</strong>!<br>
             ${labels.msgRecorded}<br>
@@ -1682,15 +1682,15 @@
     function resetQuizStateToHome() {
         currentQuiz = 0;
         score = 0;
-        totalSecondsLeft = 30 * 60;
+        totalSecondsLeft = 20 * 60;
         isExamSubmitted = false;
         submissionStatus = "Completed";
         pDetails = { name: "", designation: "", station: "" };
         selectedAnswer = null;
-        
+
         quizForm.reset();
         switchLanguage('en'); 
-        
+
         endPage.classList.add('hidden');
         quizPage.classList.add('hidden');
         regPage.classList.add('hidden');
@@ -1711,7 +1711,7 @@
             const tr = document.createElement('tr');
             const currentStatus = rec.status || "Completed"; 
             const currentTimestamp = rec.timestamp || "N/A";
-            
+
             tr.innerHTML = `
                 <td>${currentTimestamp}</td>
                 <td>${rec.name}</td>
